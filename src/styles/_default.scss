@@ -1,0 +1,307 @@
+/* Breakpoint variables */
+$bp-small: 24.15;
+$bp-medium: 43.75;
+$bp-large: 60.25;
+$bp-xlarge: 75;
+
+/* initial values ital */
+$text-wght: 350;
+$text-ital: 0;
+
+/* Paragraph variables */
+$p-line-height-min: 1.15;
+$p-line-height-max: 1.25;
+$p-font-size-min: 1.0;
+$p-font-size-max: 1.15;
+$p-vf-wght: var($text-wght);
+
+/* H1 variables */
+$h1-line-height-min: 1.05;
+$h1-line-height-max: 1.1;
+$h1-font-size-min: 2.5;
+$h1-font-size-max: 3.5;
+$h1-vf-wght-multiplier-s: .33;
+$h1-vf-wght-multiplier-m: .33;
+$h1-vf-wght-multiplier-l: .33;
+
+/* H2 variables */
+$h2-line-height-min: 1;
+$h2-line-height-max: 1;
+$h2-font-size-min: 1.75;
+$h2-font-size-max: 2.5;
+$h2-vf-wght-multiplier-s: 1.25;
+$h2-vf-wght-multiplier-m: 1.5;
+$h2-vf-wght-multiplier-l: 1.75;
+
+/* H3 variables */
+$h3-line-height-min: 1.15;
+$h3-line-height-max: 1.25;
+$h3-font-size-min: 1.25;
+$h3-font-size-max: 2;
+$h3-vf-wght-multiplier-s: .5;
+$h3-vf-wght-multiplier-m: .5;
+$h3-vf-wght-multiplier-l: .5;
+
+/* Blockquote variables */
+$bq-line-height-min: 1.1;
+$bq-line-height-max: 1.1;
+$bq-font-size-min: 2.7;
+$bq-font-size-max: 5;
+
+
+.italic,
+i,
+em {
+    $text-ital: 1;
+}
+
+b,
+strong {
+    $text-wght: 475;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $black;
+    background: #040d30;
+    background: linear-gradient(to bottom,  #040d30 0%,#1b2947 52%,#383d95 86%,#383d95 100%) no-repeat center center fixed;
+    @media #{$mobile-devices} {
+        position: relative;
+    }
+
+    // background-attachment: fixed mobile hack
+    @media #{$mobile-devices} {
+        &:before {
+            content: ' ';
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: -moz-linear-gradient(top,  #040d30 0%, #1b2947 52%, #383d95 86%, #383d95 100%); // FF3.6-15
+            background: -webkit-linear-gradient(top,  #040d30 0%,#1b2947 52%,#383d95 86%,#383d95 100%); // Chrome10-25,Safari5.1-6
+            background: linear-gradient(to bottom,  #040d30 0%,#1b2947 52%,#383d95 86%,#383d95 100%) no-repeat center center fixed; // W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
+            background-size: cover;
+            will-change: transform;
+            // creates a new paint layer
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            z-index: -1;
+        }
+    }
+}
+
+body {
+
+    &::-webkit-scrollbar {
+        background-color: $white;
+        width: 0.85em;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $white;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $slate;
+        border-radius: 2em;
+        border: 2px solid $slate;
+    }
+
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+
+}
+
+body,
+div,
+p,
+th,
+td,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+figcaption,
+cite,
+i,
+em,
+b,
+strong,
+button,
+p:first-line,
+p:first-letter {
+	font-family: "FF Meta VF", "Fira Sans", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+    font-style: normal;
+    font-variation-settings:
+        'wght' $text-wght,
+        'ital' $text-ital;
+}
+
+/* Generic header styles */
+h1, h2, h3, h4, h5, h6 {
+	font-family: "FF Meta VF", "Fira Sans", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    transition: all linear 0.2s;
+    margin: 1rem auto .5rem auto;
+    letter-spacing: -0.025rem;
+	$text-wght: calc(#{$p-vf-wght} * #{$h1-vf-wght-multiplier-s});
+}
+
+h1 {
+    /* Set $text-wght value multiplier */
+    $text-wght: calc(#{$p-vf-wght} * #{$h1-vf-wght-multiplier-s});
+    $text-ital: 0;
+    font-size: calc(#{$h1-font-size-min} * 1em);
+    line-height: $h1-line-height-min;
+    margin: 1rem auto;
+
+    @media screen and (min-width: 24.15em) {
+      line-height: calc((#{$h1-line-height-min} * 1em ) + (#{$h1-line-height-max} - #{$h1-line-height-min}) * ((100vw - (#{$bp-small} * 1em )) / (#{$bp-xlarge} - #{$bp-small})));
+      font-size: calc((#{$h1-font-size-max} * 1em ) + (#{$h1-font-size-max} - #{$h1-font-size-min}) * ((100vw - (#{$bp-small}) * 1em ) / (#{$bp-xlarge} - #{$bp-small})));
+    }
+
+    @media screen and (min-width: 60.25em) {
+        $text-wght: calc(#{$p-vf-wght} * #{$h1-vf-wght-multiplier-l});
+        line-height: $h1-line-height-max;
+    }
+
+    @media (min-width: 75em) {
+        font-size: calc(#{$h1-font-size-max} * 1em);
+        line-height: $h1-line-height-max;
+    }
+}
+
+h2 {
+    /* Set $text-wght value multiplier */
+    $text-wght: calc(#{$p-vf-wght} * #{$h2-vf-wght-multiplier-s});
+    $text-ital: 0;
+    font-size: calc(#{$h2-font-size-min} * 1em);
+    line-height: $h2-line-height-min;
+
+    @media screen and (min-width: 24.15em) {
+      line-height: calc((#{$h2-line-height-min} * 1em) + (#{$h2-line-height-max} - #{$h2-line-height-min}) * ((100vw - (#{$bp-small} * 1em )) / (#{$bp-xlarge} - #{$bp-small})));
+      font-size: calc((#{$h2-font-size-min} * 1em) + (#{$h2-font-size-max} - #{$h2-font-size-min}) * ((100vw - (#{$bp-small} * 1em )) / (#{$bp-xlarge} - #{$bp-small})));
+    }
+
+    @media screen and (min-width: 43.75em) {
+        $text-wght: calc(#{$p-vf-wght} * #{$h2-vf-wght-multiplier-m});
+    }
+
+    @media (min-width: 75em) {
+        $text-wght: calc(#{$p-vf-wght} * #{$h2-vf-wght-multiplier-l});
+        font-size: calc(#{$h2-font-size-max} * 1em);
+        line-height: $h2-line-height-max;
+    }
+}
+
+h3 {
+    /* Set $text-wght value multiplier */
+    $text-wght: calc( var(#{$p-vf-wght}) * var(#{$h3-vf-wght-multiplier-s}) );
+    $text-ital: 1;
+    font-size: calc(#{$h3-font-size-min} * 1em);
+    line-height: $h3-line-height-min;
+
+    @media screen and (min-width: 24.15em) {
+      line-height: calc((#{$h3-line-height-min} * 1em) + (#{$h3-line-height-max} - #{$h3-line-height-min}) * ((100vw - (#{$bp-small} * 1em )) / ( #{$bp-xlarge} - #{$bp-small})));
+      font-size: calc((#{$h3-font-size-min} * 1em) + (#{$h3-font-size-max} - #{$h3-font-size-min}) * ((100vw - (#{$bp-small} * 1em)) / (#{$bp-xlarge} - #{$bp-small})));
+    }
+
+    @media screen and (min-width: 43.75em) {
+        $text-wght: calc(#{$p-vf-wght} * #{$h3-vf-wght-multiplier-m});
+    }
+
+    @media (min-width: 75em) {
+        $text-wght: calc(#{$p-vf-wght} * #{$h3-vf-wght-multiplier-l});
+        font-size: calc(#{$h3-font-size-max} * 1em);
+        line-height: #{$h3-line-height-max};
+    }
+}
+
+p {
+    $text-ital: 0;
+    transition: all linear 0.2s;
+}
+
+p {
+    font-size: calc(#{$p-font-size-min} * 1rem);
+    line-height: $p-line-height-min;
+    @media screen and (min-width: 24.15em) {
+      line-height: calc((#{$p-line-height-min} * 1em ) + (#{$p-line-height-max} - #{$p-line-height-min}) * ((100vw - (#{$bp-small} * 1em )) / (#{$bp-large} - #{$bp-small})));
+    }
+    @media (min-width: 60.25em) {
+        font-size: calc((#{$p-font-size-min} * 1em ) + (#{$p-font-size-max} - #{$p-font-size-min}) * ((100vw - (#{$bp-large} * 1em )) / (#{$bp-xlarge} - #{$bp-large})));
+        line-height: $p-line-height-max;
+    }
+    @media (min-width: 75em) {
+        font-size: calc(#{$p-font-size-max} * 1em);
+    }
+}
+
+a {
+	text-decoration: none;
+	color: $black;
+	background-image: linear-gradient(120deg, $mint 0%, $skyblue 100%);
+	background-repeat: no-repeat;
+	background-size: 100% 0.25em;
+	background-position: 0 95%;
+	transition: background-size 0.25s ease-in;
+
+	&:hover {
+		background-size: 100% 90%;
+		cursor: pointer;
+		text-shadow: 0 1px 2px rgba($white, 0.2);
+	}
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2.5em 3em;
+
+    > div,
+    section {
+        max-width: 90vw;
+
+        @media (min-width: 1224px) {
+            max-width: 70vw;
+        }
+    }
+}
+
+
+.fade-enter-active,
+.fade-leave-active {
+    transition-duration: 0.2s;
+    transition-property: opacity;
+    transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+    opacity: 0
+}

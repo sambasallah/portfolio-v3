@@ -1,0 +1,22 @@
+{
+    "experience": [
+        {
+            "company": "Cognito Forms",
+            "date": "August 2019",
+            "title": "Front-End Engineer",
+            "description": "Lorem Ipsum"
+        },
+        {
+            "company": "United Shore",
+            "date": "April 2018 - August 2019",
+            "title": "User Interface Developer",
+            "description": "Lorem Ipsum"
+        },
+        {
+            "company": "Innovative Network Solutions",
+            "date": "March 2017 - April 2018",
+            "title": "Web Developer",
+            "description": "Lorem Ipsum"
+        }
+    ]
+}
