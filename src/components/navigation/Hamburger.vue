@@ -14,6 +14,7 @@
 		<span class="hamburger-title">Menu</span>
 	</div>
 </template>
+
 <script>
 	/* eslint-disable import/extensions */
 	/* eslint-disable import/no-unresolved */

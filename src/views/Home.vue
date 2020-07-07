@@ -1,13 +1,11 @@
 <template>
 	<div class="home">
-		<!-- <div class="stars-container"></div>
-		<div class="mountains-container"></div> -->
-		<div class="hero__flourish">
-			<svg class="hero__flourish-shape" viewBox="0 0 665 861">
+		<div class="hero">
+			<svg class="hero-stars" viewBox="0 0 665 861">
 				<stars />
 				<path fill="url(#stars)" stroke="#FAE0E6" stroke-width="2" d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"></path>
 			</svg>
-			<svg class="hero__flourish-shape__background" viewBox="0 0 665 861">
+			<svg class="hero-stars__background" viewBox="0 0 665 861">
 				<linearGradient id="myGradient" gradientTransform="rotate(90)">
 					<stop offset="0%"  stop-color="#040d30" />
 					<stop offset="52%" stop-color="#1b2947" />
@@ -16,11 +14,10 @@
 				</linearGradient>
 				<path fill="url(#myGradient)" d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"></path>
 			</svg>
-			<svg class="hero__flourish-outline" viewBox="0 0 650 875">
+			<svg class="hero-outline" viewBox="0 0 650 875">
 				<path fill="none" stroke="#ffffff" stroke-width="2" d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"></path>
 			</svg>
 		</div>
-
 	</div>
 </template>
 
@@ -36,18 +33,13 @@
 
 
 <style lang="scss">
-	.home {
-		position: relative;
-		height: 100vh;
-	}
-
-	.hero__flourish {
+	.hero {
 		position: absolute;
 		top: 0;
 		right: 0;
 		height: 100vh;
 
-		&-shape {
+		&-stars {
 			position: relative;
 			max-height: 90vh;
 			height: 100%;
@@ -74,31 +66,6 @@
 		}
 	}
 
-	.stars-container {
-		position: absolute;
-		top: 0;
-		width: 100%;
-		height: 100vh;
-		padding: 0;
-		margin: 0;
-		overflow: hidden;
-		background: url(../assets/images/stars.svg);
-	}
-
-	.mountains-container {
-		@include mountains;
-	}
-
-	.welcome {
-		width: fit-content;
-		position: absolute;
-		right: 0;
-		top: 15%;
-		left: 25%;
-		opacity: 0;
-		transform: translate(0, -15%);
-		animation: text-fade-in 1000ms 800ms forwards;
-	}
 
 	@keyframes text-fade-in {
 		from {
@@ -118,26 +85,5 @@
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		margin: 0;
-	}
-
-	.personal-information {
-
-		&__grid-container {
-			padding: 1.25em;
-
-			& > div:nth-child(1)  { grid-area: about; }
-			& > div:nth-child(2)  { grid-area: history; }
-
-			& {
-				grid-template-areas:
-					"about about"
-					"history history";
-
-				@media screen and (min-width: 750px) {
-					grid-template-areas:
-					"about history";
-				}
-			}
-		}
 	}
 </style>
