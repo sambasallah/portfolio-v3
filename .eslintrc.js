@@ -9,10 +9,6 @@ module.exports = {
 	],
 	rules: {
 		'no-tabs': 0, // override AirBNB rule
-		// Only allow debugger in development
-		'no-debugger': process.env.PRE_COMMIT ? 'error' : 'off',
-		// Only allow `console.log` in development
-		// 'no-console': process.env.PRE_COMMIT ? ['error', { allow: ['warn', 'error'] }] : 'off',
 		'no-console': 'off',
 		'nonblock-statement-body-position': 'off',
 		curly: 'off',
@@ -42,27 +38,12 @@ module.exports = {
 		'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }]
 	},
 	parserOptions: {
-		parser: 'babel-eslint'
+		parser: 'babel-eslint',
+		ecmaVersion: 7,
+		sourceType: 'module',
+		allowImportExportEverywhere: true
 	},
 	overrides: [
-		{
-			files: ['*.ts'],
-			plugins: [
-				'@typescript-eslint'
-			],
-			parserOptions: {
-				parser: '@typescript-eslint/parser'
-			},
-			rules: {
-				// 'no-unused-vars': 'off',
-				'no-dupe-class-members': 'off',
-				'@typescript-eslint/no-use-before-define': 'off',
-				'@typescript-eslint/no-unused-vars': ['error', { args: 'none' }],
-				'import/export': 'off',
-				indent: 'off',
-				'@typescript-eslint/indent': ['error', 'tab', { SwitchCase: 1 }]
-			}
-		},
 		{
 			files: ['*.vue'],
 			rules: {

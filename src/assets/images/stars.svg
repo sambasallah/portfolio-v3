@@ -1,4 +1,4 @@
-<svg viewBox="0 0 2560 1440" xmlns="http://www.w3.org/2000/svg">
+<svg id="stars" viewBox="0 0 2560 1440" xmlns="http://www.w3.org/2000/svg">
 	<path fill="#6a6e6f" d="M2561 364l-5-364 5 364"/>
 	<path fill="#585b5c" d="M0 1435l310 4zM2243 1439h309-309M1925 1439h284-284M544 1439h226zM824 1439h218z"/>
 	<path fill="#6a6e6f" d="M2561 1431v-205 205"/>

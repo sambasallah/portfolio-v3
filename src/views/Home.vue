@@ -1,44 +1,77 @@
 <template>
 	<div class="home">
-		<div class="stars-container"></div>
-		<div class="mountains-container"></div>
-
-		<div class="welcome">
-			christa weaver
+		<!-- <div class="stars-container"></div>
+		<div class="mountains-container"></div> -->
+		<div class="hero__flourish">
+			<svg class="hero__flourish-shape" viewBox="0 0 665 861">
+				<stars />
+				<path fill="url(#stars)" stroke="#FAE0E6" stroke-width="2" d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"></path>
+			</svg>
+			<svg class="hero__flourish-shape__background" viewBox="0 0 665 861">
+				<linearGradient id="myGradient" gradientTransform="rotate(90)">
+					<stop offset="0%"  stop-color="#040d30" />
+					<stop offset="52%" stop-color="#1b2947" />
+					<stop offset="86%" stop-color="#383d95" />
+					<stop offset="100%" stop-color="#383d95" />
+				</linearGradient>
+				<path fill="url(#myGradient)" d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"></path>
+			</svg>
+			<svg class="hero__flourish-outline" viewBox="0 0 650 875">
+				<path fill="none" stroke="#ffffff" stroke-width="2" d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"></path>
+			</svg>
 		</div>
 
-
-		<div class="personal-information__grid-container grid-container">
-			<div class="about">
-				<h2 class="gradient-text">Priestess of software, goddess of code.</h2>
-				<p>My passion for web development started around the age of 11 with Invisionfree forums and learning what CSS was and how to create different skins. Then the discovery of MySpace happened, and it was all downhill from there (well, maybe not downhill, since my obsession eventually landed me into a career).</p>
-				<p>Currently, I am a front-end engineer at Cognito Forms located in Columbia, South Carolina (but my roots are from Michigan). I have extensive experience with sematic HTML, SCSS, and vanilla JavaScript (ES6+). My current pathway is aligned with JavaScript development, with a current focus in VueJs. Vue test utils and Jest are also in my JavaScript arsenal, ya know, to make sure everything is working smoothly.</p>
-				<p>By daylight, I click away at my rainbow backlight mechanical keyboard. In my spare time, I am a reader of sci-fi and mystery books, an enjoyer of psychological thrillers, and have a newfound enjoyment with playing Dungeons & Dragons.</p>
-				<span>¯\(ツ)/¯ and (╯°□°）╯︵ ┻━┻ are my two natural states</span>
-			</div>
-			<div class="history">
-				<JobHistory />
-			</div>
-
-		</div>
 	</div>
 </template>
 
 <script>
-	import JobHistory from '@/components/JobHistory.vue';
+	import Stars from 'src/assets/images/Stars.vue';
 
 	export default {
-		name: 'home',
 		components: {
-			JobHistory
+			Stars
 		}
 	};
 </script>
 
+
 <style lang="scss">
 	.home {
+		position: relative;
+		height: 100vh;
+	}
+
+	.hero__flourish {
 		position: absolute;
 		top: 0;
+		right: 0;
+		height: 100vh;
+
+		&-shape {
+			position: relative;
+			max-height: 90vh;
+			height: 100%;
+			max-width: 100%;
+			z-index: 2;
+
+			&__background {
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 1;
+			}
+		}
+
+		&-outline {
+			position: absolute;
+			top: 0;
+			right: 0;
+			max-height: 90vh;
+			height: 100%;
+			width: 100%;
+			transform: scale(1.2);
+			transform-origin: right;
+		}
 	}
 
 	.stars-container {

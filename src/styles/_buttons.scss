@@ -9,6 +9,7 @@
     border: none;
     transition: background-color .6s ease;
     position: relative;
+    pointer-events: all;
 
     &:after {
         content: "";

@@ -1,18 +1,30 @@
 <template>
 	<div class="navbar-menu">
 		<ul class="navbar-items">
-			<li><router-link to="/">Home</router-link></li>
-			<li><router-link to="/blog">Blog</router-link></li>
-			<li><router-link to="/style-guide">Style Guide</router-link></li>
+			<li v-for="(route, index) in $router.options.routes" :key="index">
+				<router-link
+					:to="route.path"
+					@click.native="closeMenu"
+				>
+					{{ route.name }}
+				</router-link>
+			</li>
 		</ul>
-
-		<div id="mountains" v-if="$route.name !== 'home'"></div>
 	</div>
 </template>
 
 <script>
+	/* eslint-disable import/extensions */
+	/* eslint-disable import/no-unresolved */
+	import { mutations } from 'src/store.js';
+
 	export default {
-		name: 'NavMenu'
+		name: 'NavMenu',
+		methods: {
+			closeMenu() {
+				mutations.toggleNav();
+			}
+		}
 	};
 </script>
 

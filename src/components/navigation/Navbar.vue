@@ -1,45 +1,35 @@
+
 <template>
 	<nav
-		:class="menuOpened ? 'navbar active' : 'navbar'"
+		:class="isPanelOpen ? 'navbar active' : 'navbar'"
 	>
-		<div class="navbar-wrapper">
-			<span class="brand" title="Christa Weaver">christa<strong>weaver</strong></span>
-			<button class="navbar-hamburger"
-				id="toggle-nav"
-				:class="menuOpened ? 'menu-button active' : 'menu-button'"
-				@click="toggleMenu"
-			>
-				<span></span>
-			</button>
-		</div>
+		<hamburger />
+		<span class="brand" title="Christa Weaver">c<strong>w</strong></span>
 
 		<transition name="fade" mode="out-in">
-			<nav-menu v-if="menuOpened" />
+			<nav-menu v-if="isPanelOpen" >
+				<slot></slot>
+			</nav-menu>
 		</transition>
 	</nav>
 </template>
 
 <script>
-	import NavMenu from '@/components/NavMenu.vue';
+	/* eslint-disable import/extensions */
+	/* eslint-disable import/no-unresolved */
+	import { store } from 'src/store.js';
+	import Hamburger from './Hamburger.vue';
+	import NavMenu from './NavMenu.vue';
 
 	export default {
 		name: 'Navbar',
-		data() {
-			return {
-				menuOpened: false
-			};
-		},
 		components: {
+			Hamburger,
 			NavMenu
 		},
-		methods: {
-			toggleMenu() {
-				this.menuOpened = !this.menuOpened;
-
-				if (this.menuOpened)
-					document.body.style.overflow = 'hidden';
-				else
-					document.body.style.overflow = 'auto';
+		computed: {
+			isPanelOpen() {
+				return store.isNavOpen;
 			}
 		}
 	};
@@ -47,36 +37,43 @@
 
 <style lang="scss" scoped>
 	.navbar {
-		position: relative;
-		z-index: 9999;
-		width: 100%;
+		position: fixed;
+		z-index: 10;
 		top: 0;
 		background-color: rgba($slate, 0.2);
-		height: 60px;
+		height: 100%;
+		width: 115px;
+		border-right: 1px solid $black;
 		display: flex;
-		justify-content: center;
+		flex-direction: column;
+		justify-content: space-between;
+
+		&:after {
+			content: ' ';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			height: 100%;
+			right: -8px;
+			border: 1px solid $black;
+		}
 
 		&.active {
 			background-color: rgba($slate, 0.9);
 		}
+
 
 		.brand {
 			color: $skyblue;
 			font-size: 2em;
 			font-weight: 300;
 			letter-spacing: 0.1px;
+			font-family: "FF Meta VF";
 
 			strong {
-				font-weight: 600;;
+				font-family: "FF Meta VF";
+				font-weight: 600;
 			}
-		}
-
-		&-wrapper {
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			max-width: 1400px;
 		}
 
 		&-hamburger {
