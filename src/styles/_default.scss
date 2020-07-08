@@ -77,7 +77,7 @@ body {
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	color: $black;
+	color: $medium-slate;
 	background: #040d30;
 
 	@media #{$mobile-devices} {
@@ -153,7 +153,7 @@ button,
 p:first-line,
 p:first-letter {
 	// font-family: "FF Meta VF", "Fira Sans", Helvetica, Arial, sans-serif;
-	font-family: "Nunito", "Fira Sans", sans-serif;
+	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
 	font-style: normal;
 	font-variation-settings:
@@ -163,7 +163,7 @@ p:first-letter {
 
 /* Generic header styles */
 h1, h2, h3, h4, h5, h6 {
-	font-family: "FF Meta VF", "Fira Sans", Helvetica, Arial, sans-serif;
+	font-family: 'Merriweather', serif;
 	font-weight: normal;
 	transition: all linear 0.2s;
 	margin: 1rem auto .5rem auto;

@@ -1,7 +1,11 @@
 <template>
-	<svg class="morph1" width="1400" height="770" viewBox="0 0 1400 770" style="transform: scaleX(1) scaleY(1.5) translateX(50px) translateY(0px) rotate(0deg); z-index: 1000;">
-		<path d="M 247.6,239.6 C 174.3,404.5 255.7923571427885,581.315285714423 358.5,624.3 461.2076428572115,667.2246071427196 569.1,611.6 659.7,655.7 750.4,699.7 1098.717499999795,692.1477857142554 1153,534.4 1206.6814285716307,376.59210714288724 1114,328.4 1127,227.4 1140,126.3 1016,51.08 924.6,116.8 833.8,182.5 914.8763214286616,408.6401428570439 706.8,283.5 498.7236785713384,158.29975000009873 320.8,74.68 247.6,239.6 Z" style="fill: rgb(40, 47, 175);"></path>
-	</svg>
+	<div>
+		<h1 class="gradient-text">Priestess of software, goddess of code.</h1>
+		<p>My passion for web development started around the age of 11 with Invisionfree forums and learning what CSS was and how to create different skins. Then the discovery of MySpace happened, and it was all downhill from there (well, maybe not downhill, since my obsession eventually landed me into a career).</p>
+		<p>Currently, I am a front-end engineer at Cognito Forms located in Columbia, South Carolina (but my roots are from Michigan). I have extensive experience with sematic HTML, SCSS, and vanilla JavaScript (ES6+). My current pathway is aligned with JavaScript development, with a current focus in VueJs. Vue test utils and Jest are also in my JavaScript arsenal, ya know, to make sure everything is working smoothly.</p>
+		<p>By daylight, I click away at my rainbow backlight mechanical keyboard. In my spare time, I am a reader of sci-fi and mystery books, an enjoyer of psychological thrillers, and have a newfound enjoyment with playing Dungeons &amp; Dragons.</p>
+		<span>¯\(ツ)/¯ and (╯°□°）╯︵ ┻━┻ are my two natural states</span>
+	</div>
 </template>
 
 <script>
@@ -9,3 +13,15 @@
 		name: 'About'
 	};
 </script>
+
+<style lang="scss">
+	.gradient-text {
+		font-size: 4rem;
+		line-height: 0.9;
+		text-transform: uppercase;
+		background: linear-gradient(to right, $skyblue 0%, #1b2947 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		margin: 0;
+	}
+</style>

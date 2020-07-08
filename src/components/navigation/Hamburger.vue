@@ -5,13 +5,13 @@
 			class="hamburger-button"
 			:class="{ 'active' : isBurgerActive }"
 			@click.prevent="toggle"
-			title="Menu"
+			:title="hamburgerTitle"
 		>
 			<span class="bar"></span>
 			<span class="bar"></span>
 			<span class="bar"></span>
 		</button>
-		<span class="hamburger-title">Menu</span>
+		<span class="hamburger-title">{{ hamburgerTitle }}</span>
 	</div>
 </template>
 
@@ -25,6 +25,9 @@
 		computed: {
 			isBurgerActive() {
 				return store.isNavOpen;
+			},
+			hamburgerTitle() {
+				return this.isBurgerActive ? 'Close' : 'Menu';
 			}
 		},
 		methods: {
@@ -79,6 +82,11 @@
 			}
 		}
 
+		&:focus {
+			outline: 0;
+			border: 0;
+		}
+
 		&.active,
 		:active {
 
@@ -87,7 +95,7 @@
 			}
 
 			.bar {
-				background-color: red;
+				background-color: #B00200;
 
 				&:nth-of-type(1) {
 					transform: rotate(45deg);
@@ -110,6 +118,6 @@
 		font-weight: 200;
 		text-transform: uppercase;
 		position: absolute;
-		margin-top: -8px;
+		margin-top: -7px;
 	}
 </style>

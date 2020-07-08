@@ -1,13 +1,12 @@
-
 <template>
 	<nav
-		:class="isPanelOpen ? 'navbar active' : 'navbar'"
+		:class="isMenuOpen ? 'navbar active' : 'navbar'"
 	>
 		<hamburger />
 		<span class="brand" title="Christa Weaver">c<strong>w</strong></span>
 
 		<transition name="fade" mode="out-in">
-			<nav-menu v-if="isPanelOpen" >
+			<nav-menu v-if="isMenuOpen">
 				<slot></slot>
 			</nav-menu>
 		</transition>
@@ -28,7 +27,7 @@
 			NavMenu
 		},
 		computed: {
-			isPanelOpen() {
+			isMenuOpen() {
 				return store.isNavOpen;
 			}
 		}

@@ -1,12 +1,16 @@
 import Vue from 'vue';
 
 export const store = Vue.observable({
-	isNavOpen: false
+	isNavOpen: false,
+	isContactOpen: false
 });
 
 // We call toggleNav anywhere we need it in our app
 export const mutations = {
 	toggleNav() {
 		store.isNavOpen = !store.isNavOpen;
+	},
+	toggleContact() {
+		store.isContactOpen = !store.isContactOpen;
 	}
 };

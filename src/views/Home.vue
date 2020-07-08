@@ -18,6 +18,11 @@
 				<path fill="none" stroke="#ffffff" stroke-width="2" d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"></path>
 			</svg>
 		</div>
+		<div class="welcome">
+			<h1>hi, i'm christa</h1>
+			<p>i'm a front-end engineer and user experience advocate.</p>
+			<p>more simply, i like to <strong>make the web a better place</strong>.</p>
+		</div>
 	</div>
 </template>
 
@@ -66,6 +71,18 @@
 		}
 	}
 
+	.welcome {
+		position: absolute;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+
+		strong {
+			font-weight: 900;
+		}
+	}
+
 
 	@keyframes text-fade-in {
 		from {
@@ -75,15 +92,5 @@
 			opacity: 1;
 			right: 25%;
 		}
-	}
-
-	.gradient-text {
-		font-size: 4rem;
-		line-height: 0.9;
-		text-transform: uppercase;
-		background: linear-gradient(to right, $skyblue 0%, #1b2947 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		margin: 0;
 	}
 </style>
