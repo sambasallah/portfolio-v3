@@ -40,12 +40,19 @@
 		z-index: 10;
 		top: 0;
 		background-color: rgba($slate, 0.2);
-		height: 100%;
-		width: 115px;
-		border-right: 1px solid $black;
+		width: 100%;
 		display: flex;
-		flex-direction: column;
 		justify-content: space-between;
+		align-items: center;
+		transition: all .3s ease;
+
+		@media screen and ($bp5) {
+			height: 100%;
+			width: 115px;
+			border-right: 1px solid $black;
+			flex-direction: column;
+			align-items: unset;
+		}
 
 		&:after {
 			content: ' ';

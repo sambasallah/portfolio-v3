@@ -46,8 +46,8 @@
 
 		&-stars {
 			position: relative;
+			height: 90vh;
 			max-height: 90vh;
-			height: 100%;
 			max-width: 100%;
 			z-index: 2;
 
@@ -64,7 +64,6 @@
 			top: 0;
 			right: 0;
 			max-height: 90vh;
-			height: 100%;
 			width: 100%;
 			transform: scale(1.2);
 			transform-origin: right;

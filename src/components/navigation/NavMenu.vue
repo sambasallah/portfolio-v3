@@ -41,10 +41,6 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-
-			#mountains {
-				@include mountains;
-			}
 		}
 
 		&-items {
