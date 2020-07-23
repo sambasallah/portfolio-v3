@@ -55,17 +55,34 @@
 				font-size: 2.5em;
 				text-transform: uppercase;
 				background-image: none;
+				transition: all .5s;
 
 				&:hover {
-					background-size: 0%;
+					color: $mint;
+				}
 
-					&:after {
-						content: ' »';
-					}
+				&:hover:after {
+					visibility: visible;
+				}
+
+				&:after {
+					visibility: hidden;
+					content: ' »';
+					position: absolute;
+					margin-left: 5px;
 				}
 
 				&.router-link-exact-active {
-					color: $mint;
+					color: $purple;
+					text-shadow: 0 1px 2px lighten($white, 40%);
+					padding: 0 10px;
+					@include mint-gradient-background;
+					border-radius: 4px;
+					font-style: italic;
+
+					&:after {
+						content: '';
+					}
 				}
 			}
 		}

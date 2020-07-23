@@ -26,10 +26,12 @@
 		height: 75vh;
 		width: 100%;
 		background-color: $slate;
-		position: absolute;
+		position: fixed;
 		bottom: 0;
 		z-index: 10;
 		overflow: hidden;
+		animation: slide-in-blurred-bottom  0.5s both;
+		transform: all ease 0.5s;
 	}
 
 	.mountains-container {
@@ -37,5 +39,21 @@
 		background-size: cover;
 		height: 100%;
 		position: relative;
+	}
+
+
+	@keyframes slide-in-blurred-bottom {
+		0% {
+			transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+			transform-origin: 50% 100%;
+			filter: blur(10px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0) scaleY(1) scaleX(1);
+			transform-origin: 50% 50%;
+			filter: blur(0);
+			opacity: 1;
+		}
 	}
 </style>

@@ -39,16 +39,16 @@
 		position: fixed;
 		z-index: 10;
 		top: 0;
-		background-color: rgba($slate, 0.2);
+		background-color: rgba($slate, 0.2); // #dbdde3
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		transition: all .3s ease;
 
-		@media screen and ($bp5) {
+		@media screen and (min-width: $bp5) {
 			height: 100%;
-			width: 115px;
+			width: 100px;
 			border-right: 1px solid $black;
 			flex-direction: column;
 			align-items: unset;
@@ -80,61 +80,9 @@
 				font-family: "FF Meta VF";
 				font-weight: 600;
 			}
-		}
 
-		&-hamburger {
-			background: transparent;
-			position: relative;
-			border: 0;
-			width: 50px;
-			height: 3px;
-			outline: none;
-
-			&:hover {
-				cursor: pointer;
-			}
-
-			span,
-			span:before,
-			span:after {
-				position: absolute;
-				content: '';
-				width: 30px;
-				height: 3px;
-				background: $white;
-				transition: 500ms cubic-bezier(0.77, 0, 0.175, 1);
-				right: 0;
-			}
-		}
-
-		.menu-button span::before {
-			top: -8px;
-		}
-
-		.menu-button span::after {
-			top: 8px;
-		}
-
-		.menu-button:hover > span,
-		.menu-button:hover > span::before,
-		.menu-button:hover > span::after {
-			background: $mint;
-		}
-
-		.menu-button.active {
-
-			& > span  {
-				background: transparent;
-
-				&::before  {
-					transform: rotate(-225deg);
-					top: 0px;
-				}
-
-				&::after  {
-					transform: rotate(225deg);
-					top: 0px;
-				}
+			@media screen and (min-width: $bp5) {
+				margin-left: 0.5em;
 			}
 		}
 	}

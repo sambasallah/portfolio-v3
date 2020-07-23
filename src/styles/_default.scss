@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,700&display=swap');
 /* Breakpoint variables */
 $bp-small: 24.15;
 $bp-medium: 43.75;
@@ -77,33 +78,9 @@ body {
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	color: $medium-slate;
-	background: #040d30;
-
-	@media #{$mobile-devices} {
-		position: relative;
-	}
-
-	// background-attachment: fixed mobile hack
-	@media #{$mobile-devices} {
-		&:before {
-			content: ' ';
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			background: -moz-linear-gradient(top,  #040d30 0%, #1b2947 52%, #383d95 86%, #383d95 100%); // FF3.6-15
-			background: -webkit-linear-gradient(top,  #040d30 0%,#1b2947 52%,#383d95 86%,#383d95 100%); // Chrome10-25,Safari5.1-6
-			background: linear-gradient(to bottom,  #040d30 0%,#1b2947 52%,#383d95 86%,#383d95 100%) no-repeat center center fixed; // W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
-			background-size: cover;
-			will-change: transform;
-			// creates a new paint layer
-			backface-visibility: hidden;
-			-webkit-backface-visibility: hidden;
-			z-index: -1;
-		}
-	}
+	color: $black;
+	//background: #040d30;
+	background: #f0f0f0;
 }
 
 body {

@@ -3,7 +3,7 @@
 		<div class="hero">
 			<svg class="hero-stars" viewBox="0 0 665 861">
 				<stars />
-				<path fill="url(#stars)" stroke="#FAE0E6" stroke-width="2" d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"></path>
+				<path fill="url(#stars)" stroke="#1b2947" stroke-width="2" d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"></path>
 			</svg>
 			<svg class="hero-stars__background" viewBox="0 0 665 861">
 				<linearGradient id="myGradient" gradientTransform="rotate(90)">
@@ -15,14 +15,16 @@
 				<path fill="url(#myGradient)" d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"></path>
 			</svg>
 			<svg class="hero-outline" viewBox="0 0 650 875">
-				<path fill="none" stroke="#ffffff" stroke-width="2" d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"></path>
+				<path fill="none" stroke="#1b2947" stroke-width="2" d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"></path>
 			</svg>
 		</div>
-		<div class="welcome">
-			<h1>hi, i'm christa</h1>
-			<p>i'm a front-end engineer and user experience advocate.</p>
-			<p>more simply, i like to <strong>make the web a better place</strong>.</p>
-		</div>
+		<section class="welcome">
+			<div class="content">
+				<h1>hi, i'm christa.</h1>
+				<p>I'm a front-end engineer and user experience advocate.</p>
+				<p>More simply, I like to <strong>make the web a better place</strong>.</p>
+			</div>
+		</section>
 	</div>
 </template>
 
@@ -47,9 +49,7 @@
 		&-stars {
 			position: relative;
 			height: 90vh;
-			max-height: 90vh;
-			max-width: 100%;
-			z-index: 2;
+			z-index: 3;
 
 			&__background {
 				position: absolute;
@@ -76,6 +76,43 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
+		align-items: baseline;
+		z-index: 5;
+		transition: all .3s ease;
+		margin: 0;
+
+		@media (max-width: $bp5) {
+			.content {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				background-color: rgba(200,200,200,0.5);
+				text-shadow: none;
+				border-radius: 1em;
+				padding: 1em 0;
+				transition: all .3s ease;
+			}
+		}
+
+		@media (min-width: $bp5) {
+			margin-left: 15%;
+		}
+
+		@media (max-width: $bp5) {
+			align-items: center;
+		}
+
+		h1 {
+			font-size: 6em;
+			text-shadow: 0 1px 2px lighten($white, 40%);
+		}
+
+		p {
+			margin: 0;
+			width: 60%;
+			margin-bottom: 5px;
+			text-shadow: 1px 2px 1px lighten($white, 90%);
+		}
 
 		strong {
 			font-weight: 900;

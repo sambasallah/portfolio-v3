@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="hamburger">
 		<button
 			type="button"
 			class="hamburger-button"
@@ -11,7 +11,7 @@
 			<span class="bar"></span>
 			<span class="bar"></span>
 		</button>
-		<span class="hamburger-title">{{ hamburgerTitle }}</span>
+		<span class="hamburger-title" :class="{ 'active' : isBurgerActive }">{{ hamburgerTitle }}</span>
 	</div>
 </template>
 
@@ -38,6 +38,12 @@
 	};
 </script>
 <style lang="scss">
+	.hamburger {
+		@media screen and (min-width: $bp5) {
+			margin-left: 0.5em;
+		}
+	}
+
 	.hamburger-button {
 		position: relative;
 		cursor: pointer;
@@ -53,7 +59,7 @@
 
 		.bar {
 			//background-color: #130f40;
-			background-color: $white;
+			background-color: $purple;
 			position: absolute;
 			right: 0;
 			left: 0;
@@ -113,11 +119,15 @@
 	}
 
 	.hamburger-title {
-		color: $white;
+		color: $purple;
 		font-size: .8em;
 		font-weight: 200;
 		text-transform: uppercase;
 		position: absolute;
 		margin-top: -7px;
+
+		&.active {
+			color: #B00200;
+		}
 	}
 </style>
