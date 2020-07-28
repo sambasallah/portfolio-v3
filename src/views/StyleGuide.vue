@@ -77,9 +77,12 @@
 </script>
 
 <style lang="scss" scoped>
+
+
 	.style-guide {
 
 		&__grid-container {
+			color: $black;
 
 			& > div:nth-child(1)  { grid-area: headings; }
 			& > div:nth-child(2)  { grid-area: buttons; }

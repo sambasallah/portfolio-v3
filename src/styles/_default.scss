@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,300&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,700&display=swap');
 /* Breakpoint variables */
 $bp-small: 24.15;
 $bp-medium: 43.75;
@@ -18,7 +18,7 @@ $p-vf-wght: var($text-wght);
 
 /* H1 variables */
 $h1-line-height-min: 1.05;
-$h1-line-height-max: 1.1;
+$h1-line-height-max: 1.25;
 $h1-font-size-min: 2.5;
 $h1-font-size-max: 3.5;
 $h1-vf-wght-multiplier-s: .33;
@@ -78,9 +78,10 @@ body {
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	color: $black;
-	//background: #040d30;
-	background: #f0f0f0;
+	// color: $black;
+	color: $body-text;
+	background: #040d30;
+	// background: #f0f0f0;
 }
 
 body {

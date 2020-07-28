@@ -48,7 +48,7 @@
 
 			&.active {
 				animation: slide-in-blurred-bottom  0.8s both;
-				bottom: 75vh;
+				bottom: 50vh;
 			}
 		}
 	}
