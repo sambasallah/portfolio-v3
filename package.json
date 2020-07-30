@@ -6,8 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-	"lint": "vue-cli-service lint",
-	"format": "prettier \"src/**/*.{js,json,html}\" --write"
+    "lint": "vue-cli-service lint",
+    "format": "prettier \"src/**/*.{js,json,html}\" --write"
   },
   "dependencies": {
     "core-js": "^3.6.5",
