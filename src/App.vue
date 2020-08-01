@@ -1,10 +1,8 @@
 <template>
-	<div id="app" :class="{ 'spiral': !routeIsHome }">
+	<div id="app">
 		<navbar />
 		<transition name="slide" mode="out-in">
-			<div :class="{ 'content-container': !routeIsHome }">
-				<router-view />
-			</div>
+			<router-view :class="{ 'content-container': !routeIsHome }" />
 		</transition>
 		<contact-button />
 		<contact />
@@ -15,14 +13,12 @@
 import ContactButton from '@/components/ContactButton.vue';
 import Contact from '@/views/Contact.vue';
 import Navbar from '@/components/navigation/Navbar.vue';
-import Stars from '@/assets/images/Stars.vue';
 
 export default {
 	components: {
 		ContactButton,
 		Contact,
-		Navbar,
-		Stars
+		Navbar
 	},
 	computed: {
 		routeIsHome() {
@@ -35,39 +31,26 @@ export default {
 <style lang="scss">
 #app {
 	height: 100%;
+	display: grid;
+	grid-template-rows: 1fr auto;
+	overflow-x: hidden;
 }
 
 .content-container {
-	margin-left: 200px;
-	position: absolute;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	overflow: hidden;
-
-	> div {
-		// border-width: 3px;
-		// border-style: solid;
-		// border-image: linear-gradient(to bottom, red, rgba(0, 0, 0, 0)) 1 100%;
-		padding: 1em 2em;
-
-		@media (min-width: $bp5) {
-			width: 75vw;
-		}
-	}
-}
-.spiral-hero {
-	height: 100%;
-}
-.spiral {
 	background-image: url('./assets/images/spiral.svg');
-	position: absolute;
-	width: 50vw;
-	background-position: bottom;
-	bottom: 0;
+	background-position: -100px bottom;
 	background-repeat: no-repeat;
-	color: $white;
-	fill: $white;
+	background-attachment: fixed, scroll;
+	padding: 1em 2em;
+	margin-top: 50px;
+	//width: 90vw;
+
+	@media (min-width: $bp5) {
+		min-height: calc(100vh - 155px);
+		margin-left: 150px;
+		margin-top: 100px;
+		width: 75vw;
+		background-position: 160px bottom;
+	}
 }
 </style>

@@ -35,9 +35,7 @@
 			<div class="content">
 				<h1>hi, i'm christa.</h1>
 				<p>I'm a front-end engineer and user experience advocate.</p>
-				<p>
-					More simply, I like to <strong>make the web a better place</strong>.
-				</p>
+				<p>More simply, I like to <strong>make the web a better place</strong>.</p>
 			</div>
 		</section>
 	</div>
@@ -54,6 +52,9 @@ export default {
 </script>
 
 <style lang="scss">
+.home {
+	min-height: calc(100vh - 55px);
+}
 .hero {
 	position: absolute;
 	top: 0;

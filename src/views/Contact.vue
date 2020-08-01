@@ -8,17 +8,14 @@
 					<strong>New Project?</strong> Great! I'm currently accepting new projects and would love to hear about yours.
 				</p>
 				<p>
-					<strong>Interested in More?</strong> Want to see more of my work? Let me know and I'll gladly send more examples!
+					<strong>Interested in More?</strong> Want to see more of my work? Let me know and I'll gladly send more
+					examples!
 				</p>
 				<h3>Connect with me!</h3>
 
 				<ul class="contact-social-links">
 					<li>
-						<a
-							href="https://github.com/cweave"
-							target="_blank"
-							title="Check out Christa's Github repositories"
-						>
+						<a href="https://github.com/cweave" target="_blank" title="Check out Christa's Github repositories">
 							<svg viewBox="0 0 16 15" role="img" labelledby="githubTitle">
 								<title id="githubTitle">Github logo</title>
 								<use xlink:href="../assets/svgs/github.svg#github" />
@@ -133,12 +130,8 @@ export default {
 	},
 	methods: {
 		formatPhone(e) {
-			const digit = e.target.value
-				.replace(/\D/g, '')
-				.match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-			e.target.value = !digit[2]
-				? digit[1]
-				: `(${digit[1]}) ${digit[2]}${digit[3] ? `-${digit[3]}` : ''}`;
+			const digit = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+			e.target.value = !digit[2] ? digit[1] : `(${digit[1]}) ${digit[2]}${digit[3] ? `-${digit[3]}` : ''}`;
 		},
 		handleKeyUp(e) {
 			const label = e.target.previousSibling;
