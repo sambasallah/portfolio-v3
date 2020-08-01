@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,300&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,900;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,700&display=swap');
 /* Breakpoint variables */
 $bp-small: 24.15;
 $bp-medium: 43.75;
@@ -12,7 +12,7 @@ $text-ital: 0;
 /* Paragraph variables */
 $p-line-height-min: 1.15;
 $p-line-height-max: 1.25;
-$p-font-size-min: 1.0;
+$p-font-size-min: 1;
 $p-font-size-max: 1.15;
 $p-vf-wght: var($text-wght);
 
@@ -21,9 +21,9 @@ $h1-line-height-min: 1.05;
 $h1-line-height-max: 1.25;
 $h1-font-size-min: 2.5;
 $h1-font-size-max: 3.5;
-$h1-vf-wght-multiplier-s: .33;
-$h1-vf-wght-multiplier-m: .33;
-$h1-vf-wght-multiplier-l: .33;
+$h1-vf-wght-multiplier-s: 0.33;
+$h1-vf-wght-multiplier-m: 0.33;
+$h1-vf-wght-multiplier-l: 0.33;
 
 /* H2 variables */
 $h2-line-height-min: 1;
@@ -39,16 +39,15 @@ $h3-line-height-min: 1.15;
 $h3-line-height-max: 1.25;
 $h3-font-size-min: 1.25;
 $h3-font-size-max: 2;
-$h3-vf-wght-multiplier-s: .5;
-$h3-vf-wght-multiplier-m: .5;
-$h3-vf-wght-multiplier-l: .5;
+$h3-vf-wght-multiplier-s: 0.5;
+$h3-vf-wght-multiplier-m: 0.5;
+$h3-vf-wght-multiplier-l: 0.5;
 
 /* Blockquote variables */
 $bq-line-height-min: 1.1;
 $bq-line-height-max: 1.1;
 $bq-font-size-min: 2.7;
 $bq-font-size-max: 5;
-
 
 .italic,
 i,
@@ -66,7 +65,9 @@ html {
 	font-size: 100%;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
 	box-sizing: inherit;
 }
 
@@ -85,7 +86,6 @@ body {
 }
 
 body {
-
 	&::-webkit-scrollbar {
 		background-color: $white;
 		width: 0.85em;
@@ -104,7 +104,6 @@ body {
 	&::-webkit-scrollbar-button {
 		display: none;
 	}
-
 }
 
 body,
@@ -134,17 +133,20 @@ p:first-letter {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
 	font-style: normal;
-	font-variation-settings:
-		'wght' $text-wght,
-		'ital' $text-ital;
+	font-variation-settings: 'wght' $text-wght, 'ital' $text-ital;
 }
 
 /* Generic header styles */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: 'Merriweather', serif;
 	font-weight: normal;
 	transition: all linear 0.2s;
-	margin: 1rem auto .5rem auto;
+	margin: 1rem auto 0.5rem auto;
 	letter-spacing: -0.025rem;
 	$text-wght: calc(#{$p-vf-wght} * #{$h1-vf-wght-multiplier-s});
 }
@@ -158,8 +160,14 @@ h1 {
 	margin: 1rem auto;
 
 	@media screen and (min-width: 24.15em) {
-	  line-height: calc((#{$h1-line-height-min} * 1em ) + (#{$h1-line-height-max} - #{$h1-line-height-min}) * ((100vw - (#{$bp-small} * 1em )) / (#{$bp-xlarge} - #{$bp-small})));
-	  font-size: calc((#{$h1-font-size-max} * 1em ) + (#{$h1-font-size-max} - #{$h1-font-size-min}) * ((100vw - (#{$bp-small}) * 1em ) / (#{$bp-xlarge} - #{$bp-small})));
+		line-height: calc(
+			(#{$h1-line-height-min} * 1em) + (#{$h1-line-height-max} - #{$h1-line-height-min}) *
+				((100vw - (#{$bp-small} * 1em)) / (#{$bp-xlarge} - #{$bp-small}))
+		);
+		font-size: calc(
+			(#{$h1-font-size-max} * 1em) + (#{$h1-font-size-max} - #{$h1-font-size-min}) *
+				((100vw - (#{$bp-small}) * 1em) / (#{$bp-xlarge} - #{$bp-small}))
+		);
 	}
 
 	@media screen and (min-width: 60.25em) {
@@ -181,8 +189,14 @@ h2 {
 	line-height: $h2-line-height-min;
 
 	@media screen and (min-width: 24.15em) {
-	  line-height: calc((#{$h2-line-height-min} * 1em) + (#{$h2-line-height-max} - #{$h2-line-height-min}) * ((100vw - (#{$bp-small} * 1em )) / (#{$bp-xlarge} - #{$bp-small})));
-	  font-size: calc((#{$h2-font-size-min} * 1em) + (#{$h2-font-size-max} - #{$h2-font-size-min}) * ((100vw - (#{$bp-small} * 1em )) / (#{$bp-xlarge} - #{$bp-small})));
+		line-height: calc(
+			(#{$h2-line-height-min} * 1em) + (#{$h2-line-height-max} - #{$h2-line-height-min}) *
+				((100vw - (#{$bp-small} * 1em)) / (#{$bp-xlarge} - #{$bp-small}))
+		);
+		font-size: calc(
+			(#{$h2-font-size-min} * 1em) + (#{$h2-font-size-max} - #{$h2-font-size-min}) *
+				((100vw - (#{$bp-small} * 1em)) / (#{$bp-xlarge} - #{$bp-small}))
+		);
 	}
 
 	@media screen and (min-width: 43.75em) {
@@ -198,14 +212,20 @@ h2 {
 
 h3 {
 	/* Set $text-wght value multiplier */
-	$text-wght: calc( var(#{$p-vf-wght}) * var(#{$h3-vf-wght-multiplier-s}) );
+	$text-wght: calc(var(#{$p-vf-wght}) * var(#{$h3-vf-wght-multiplier-s}));
 	$text-ital: 1;
 	font-size: calc(#{$h3-font-size-min} * 1em);
 	line-height: $h3-line-height-min;
 
 	@media screen and (min-width: 24.15em) {
-	  line-height: calc((#{$h3-line-height-min} * 1em) + (#{$h3-line-height-max} - #{$h3-line-height-min}) * ((100vw - (#{$bp-small} * 1em )) / ( #{$bp-xlarge} - #{$bp-small})));
-	  font-size: calc((#{$h3-font-size-min} * 1em) + (#{$h3-font-size-max} - #{$h3-font-size-min}) * ((100vw - (#{$bp-small} * 1em)) / (#{$bp-xlarge} - #{$bp-small})));
+		line-height: calc(
+			(#{$h3-line-height-min} * 1em) + (#{$h3-line-height-max} - #{$h3-line-height-min}) *
+				((100vw - (#{$bp-small} * 1em)) / (#{$bp-xlarge} - #{$bp-small}))
+		);
+		font-size: calc(
+			(#{$h3-font-size-min} * 1em) + (#{$h3-font-size-max} - #{$h3-font-size-min}) *
+				((100vw - (#{$bp-small} * 1em)) / (#{$bp-xlarge} - #{$bp-small}))
+		);
 	}
 
 	@media screen and (min-width: 43.75em) {
@@ -228,10 +248,16 @@ p {
 	font-size: calc(#{$p-font-size-min} * 1rem);
 	line-height: $p-line-height-min;
 	@media screen and (min-width: 24.15em) {
-	  line-height: calc((#{$p-line-height-min} * 1em ) + (#{$p-line-height-max} - #{$p-line-height-min}) * ((100vw - (#{$bp-small} * 1em )) / (#{$bp-large} - #{$bp-small})));
+		line-height: calc(
+			(#{$p-line-height-min} * 1em) + (#{$p-line-height-max} - #{$p-line-height-min}) *
+				((100vw - (#{$bp-small} * 1em)) / (#{$bp-large} - #{$bp-small}))
+		);
 	}
 	@media (min-width: 60.25em) {
-		font-size: calc((#{$p-font-size-min} * 1em ) + (#{$p-font-size-max} - #{$p-font-size-min}) * ((100vw - (#{$bp-large} * 1em )) / (#{$bp-xlarge} - #{$bp-large})));
+		font-size: calc(
+			(#{$p-font-size-min} * 1em) + (#{$p-font-size-max} - #{$p-font-size-min}) *
+				((100vw - (#{$bp-large} * 1em)) / (#{$bp-xlarge} - #{$bp-large}))
+		);
 		line-height: $p-line-height-max;
 	}
 	@media (min-width: 75em) {
@@ -272,7 +298,6 @@ a {
 	}
 }
 
-
 .fade-enter-active,
 .fade-leave-active {
 	transform: translate3d(0, 0, 0);
@@ -284,7 +309,7 @@ a {
 
 .fade-enter,
 .fade-leave-active {
-	opacity: 0
+	opacity: 0;
 }
 
 .slide-enter-active,
