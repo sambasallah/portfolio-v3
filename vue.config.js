@@ -10,11 +10,15 @@ module.exports = {
 	lintOnSave: true,
 	css: {
 		loaderOptions: {
-			sass: {
-				prependData: '@import "~@/styles/styles.sass"'
-			},
 			scss: {
-				prependData: '@import "~@/styles/styles.scss";'
+				additionalData: `
+					@import "@/styles/_variables.scss";
+					@import "@/styles/_buttons.scss";
+					@import "@/styles/_default.scss";
+					@import "@/styles/_grid.scss";
+					@import "@/styles/_mixins.scss";
+					@import "@/styles/_utilities.scss";
+        		`
 			}
 		}
 	},
@@ -26,8 +30,9 @@ module.exports = {
 			extensions: ['.vue', '.js', '.scss']
 		}
 	},
-	chainWebpack: (config) => {
-		config.module.rule('md')
+	chainWebpack: config => {
+		config.module
+			.rule('md')
 			.test(/\.md/)
 			.use('vue-loader')
 			.loader('vue-loader')
@@ -43,8 +48,6 @@ module.exports = {
 			.set('@assets', resolveRealPath('src/assets'))
 			.set('@router', resolveRealPath('src/router'))
 			.set('@components', resolveRealPath('src/components'));
-		config.resolve.extensions
-			.clear()
-			.add('js');
+		config.resolve.extensions.clear().add('js');
 	}
 };
