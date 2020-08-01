@@ -1,22 +1,65 @@
 {
-    "experience": [
-        {
-            "company": "Cognito Forms",
-            "date": "August 2019",
-            "title": "Front-End Engineer",
-            "description": "Lorem Ipsum"
-        },
-        {
-            "company": "United Shore",
-            "date": "April 2018 - August 2019",
-            "title": "User Interface Developer",
-            "description": "Lorem Ipsum"
-        },
-        {
-            "company": "Innovative Network Solutions",
-            "date": "March 2017 - April 2018",
-            "title": "Web Developer",
-            "description": "Lorem Ipsum"
-        }
-    ]
+	"jobExperience": [
+		{
+			"position": "Volunteer Frontend Engineer",
+			"company": "FightPandemics",
+			"dates": {
+				"start": "July 2020",
+				"end": ""
+			},
+			"technology": ["React", "MongoDB", "Node"],
+			"description": "Contributing as a frontend engineer in a NodeJS and React open-source application that connects people and organizations in need of help with those that can provide it.",
+			"tasks": [
+				"Implement frontend functionality utilizing React, MongoDB, and REST APIs",
+				"Collaborate with a worldwide team of 850+ volunteers of various backgrounds and occupations using Slack, Notion, Google Docs and GitHub"
+			]
+		},
+		{
+			"position": "Frontend Engineer",
+			"company": "Cognito Forms",
+			"dates": {
+				"start": "August 2019",
+				"end": "July 2020"
+			},
+			"technology": ["Vue", "JavaScript", "SCSS", "Typescript", "REST", "C#", "Jest", "Webpack", "HTML", "A11Y"],
+			"description": "",
+			"tasks": [
+				"Refactored legacy software into a SPA framework utilizing Vue.js and RESTful endpoints that reduced the load time by half, doubled performance, and increased accessibility and usability",
+				"Built customizable form software for customers to create their own forms with simplicity",
+				"Provided support for legacy application and the modernization of old tech stack",
+				"Implemented Facebook and Google oAuth login from the front end and built out required RESTful endpoints needed to return appropriate data to the user",
+				"Implemented unit tests with Jest to maintain code consistency to uncover and triage bugs as they arose"
+			]
+		},
+		{
+			"position": "User Interface Developer",
+			"company": "United Shore",
+			"dates": {
+				"start": "April 2018",
+				"end": "August 2019"
+			},
+			"technology": ["Vue", "Vuex", "JavaScript", "jQuery", "SCSS", "LESS", "HTML", "REST", "A11Y", "Razor", "C#"],
+			"description": "",
+			"tasks": [
+				"Assisted in architecting and developing the front-end technology and user interface for Brand360 (a suite of client management tools and fully customizable marketing tools) to utilize Vue.js and Vuex, created wireframes for optimal user experiences, and coordinated with backend developers to establish and maintain API endpoints",
+				"Developed the user interface of the revolutionary closing tool, UClose 2.0, which streamlines the mortgage closing process and allows UWM Brokers to go through the closing process without needing a Closer",
+				" Built custom widgets through Sitefinity, customized Sitefinity templates, and made the widgets mobile friendly by means of standard HTML or Razor templating when needing to pull in server logic",
+				"Led effort to create frontend standards for app development - worked with a small team of UI developers to set rules for HTML, styling (SCSS and LESS), and JavaScript/jQuery. Documented and enforced those coding standards throughout 500+ person App Development department"
+			]
+		},
+		{
+			"position": "Web Developer",
+			"company": "Innovative Network Solutions",
+			"dates": {
+				"start": "March 2017",
+				"end": "April 2018"
+			},
+			"technology": ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+			"description": "Responsible for all stages of website creation both on the front and back end from initial design and architecture to development, deployment, and management:",
+			"tasks": [
+				"Created user friendly, mobile responsive websites for in-house and client websites primarily using HTML, CSS, JavaScript/jQuery, MySQL, and PHP",
+				"Assisted in building a custom Content Management System and built client websites using it"
+			]
+		}
+	]
 }
