@@ -24,37 +24,25 @@ export default {
 	},
 	mounted() {
 		getGitEvents().then(result => {
-			console.log(result);
-			let { type, payload } = result
+			//console.log(result);
+			result
 				.filter(event => event.type !== 'WatchEvent' && event.type !== 'IssueCommentEvent')
 				.filter((i, index) => index < 5)
-				.reduce((accumulator, item) => {
-					Object.keys(item).forEach(key => {
-						console.log('key', key, 'accu', accumulator, 'item', item);
-						accumulator[key] = (accumulator[key] || []).concat(item[key]);
+				.map((i, index) => {
+					console.log(i);
+					const {
+						type,
+						repo,
+						payload
+					} = i;
+					return this.gitEvents.push({
+						type,
+						repo,
+						payload
 					});
-					return accumulator;
-				}, {});
+				});
 
-			this.gitEvents.push({
-				type,
-				payload
-			});
-			console.log('type', type);
-			// result
-			// 	.filter(event => event.type !== 'WatchEvent' && event.type !== 'IssueCommentEvent')
-			// 	.filter((i, index) => index < 5)
-			// 	.map((i, index) => {
-			// 		return console.log(i);
-			// 	});
-			// result.forEach(event => {
-			// 	if (this.gitEvents.length <= 5 && event.type !== 'WatchEvent' && event.type !== 'IssueCommentEvent') {
-			// 		this.gitEvents.push({
-			// 			type: event.type,
-			// 			repo: event.repo
-			// 		});
-			// 	}
-			// });
+			console.log('type', this.gitEvents);
 		});
 	}
 };
