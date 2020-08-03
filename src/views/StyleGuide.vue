@@ -1,5 +1,6 @@
 <template>
-	<div class="content">
+	<div>
+		<h1>Style Guide</h1>
 		<div class="style-guide__grid-container grid-container">
 			<div class="headings">
 				<h1>Heading One</h1>
@@ -23,8 +24,8 @@
 			<div class="colors">
 				<ul class="brand-colors">
 					<li v-for="color in colors" :key="color.id">
-						<div class="square" :style="{ backgroundColor: color.hex }"></div>
-						{{ color.name }} &mdash; {{ color.hex }}
+						<div class="brand-colors__square" :style="{ backgroundColor: color.hex }"></div>
+						{{ color.name }}&mdash; {{ color.hex.toUpperCase() }}
 					</li>
 				</ul>
 			</div>
@@ -74,6 +75,10 @@ export default {
 				{
 					name: 'skyblue',
 					hex: '#8FD3F4'
+				},
+				{
+					name: 'purple',
+					hex: '#383d95'
 				}
 			]
 		};
@@ -133,7 +138,7 @@ export default {
 	margin: 0;
 	padding: 0;
 
-	.square {
+	&__square {
 		width: 20px;
 		height: 20px;
 		margin: 5px;
