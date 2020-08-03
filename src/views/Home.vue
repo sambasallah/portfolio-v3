@@ -8,7 +8,7 @@
 					stroke="#DBDBDB"
 					stroke-width="2"
 					d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"
-				></path>
+				/>
 			</svg>
 			<svg class="hero-stars__background" viewBox="0 0 665 861">
 				<linearGradient id="myGradient" gradientTransform="rotate(90)">
@@ -20,7 +20,7 @@
 				<path
 					fill="url(#myGradient)"
 					d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"
-				></path>
+				/>
 			</svg>
 			<svg class="hero-outline" viewBox="0 0 650 875">
 				<path
@@ -28,14 +28,17 @@
 					stroke="#DBDBDB"
 					stroke-width="2"
 					d="M6 -1.00002L665 -1.00006L665 861C665 861 195.93 718.511 245.775 487.68C295.619 256.85 212.917 235.324 84.8721 149.674C-30.0745 72.7857 6 -1.00002 6 -1.00002Z"
-				></path>
+				/>
 			</svg>
 		</div>
 		<section class="welcome">
-			<div class="content">
+			<div class="welcome-content">
 				<h1>hi, i'm christa.</h1>
 				<p>I'm a front-end engineer and user experience advocate.</p>
-				<p>More simply, I like to <strong>make the web a better place</strong>.</p>
+				<p>
+					More simply, I like to
+					<strong>make the web a better place</strong>.
+				</p>
 			</div>
 		</section>
 	</div>
@@ -55,6 +58,7 @@ export default {
 .home {
 	min-height: calc(100vh - 55px);
 }
+
 .hero {
 	position: absolute;
 	top: 0;
@@ -97,13 +101,13 @@ export default {
 	margin: 0;
 
 	@media (max-width: $bp5) {
-		.content {
+		&-content {
 			display: flex;
 			align-items: center;
 			flex-direction: column;
-			background-color: rgba(200, 200, 200, 0.5);
+			background-color: rgba($black, 0.7);
 			border-radius: 1em;
-			padding: 1em 0;
+			padding: 1em;
 			transition: all 0.3s ease;
 		}
 	}
@@ -114,30 +118,23 @@ export default {
 
 	@media (max-width: $bp5) {
 		align-items: center;
+		width: 100%;
 	}
 
 	h1 {
 		font-size: 6em;
+		animation: fade-in 0.2s ease-in;
 	}
 
 	p {
 		margin: 0;
-		width: 60%;
+		width: 80%;
 		margin-bottom: 5px;
+		animation: fade-in 0.5s ease-in;
 	}
 
 	strong {
 		font-weight: 900;
-	}
-}
-
-@keyframes text-fade-in {
-	from {
-		right: 0;
-	}
-	to {
-		opacity: 1;
-		right: 25%;
 	}
 }
 </style>

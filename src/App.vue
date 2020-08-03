@@ -43,7 +43,7 @@ export default {
 	background-attachment: fixed, scroll;
 	padding: 1em 2em;
 	margin-top: 50px;
-	//width: 90vw;
+	width: 100vw;
 
 	@media (min-width: $bp5) {
 		min-height: calc(100vh - 155px);

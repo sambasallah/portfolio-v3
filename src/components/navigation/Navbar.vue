@@ -1,7 +1,10 @@
 <template>
 	<nav :class="isMenuOpen ? 'navbar active' : 'navbar'">
 		<hamburger />
-		<span class="brand" title="Christa Weaver">c<strong>w</strong></span>
+		<span class="brand" title="Christa Weaver">
+			c
+			<strong>w</strong>
+		</span>
 
 		<transition name="fade" mode="out-in">
 			<nav-menu v-if="isMenuOpen">
@@ -58,8 +61,11 @@ export default {
 		top: 0;
 		bottom: 0;
 		height: 100%;
-		right: -8px;
-		border: 1px solid $black;
+
+		@media screen and (min-width: $bp5) {
+			right: -8px;
+			border: 1px solid $black;
+		}
 	}
 
 	&.active {

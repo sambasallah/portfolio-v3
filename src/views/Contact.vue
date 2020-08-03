@@ -162,23 +162,7 @@ export default {
 </script>
 
 <style lang="scss">
-@keyframes slide-in-blurred-bottom {
-	0% {
-		transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
-		transform-origin: 50% 100%;
-		filter: blur(10px);
-		opacity: 0;
-	}
-	100% {
-		transform: translateY(0) scaleY(1) scaleX(1);
-		transform-origin: 50% 50%;
-		filter: blur(0);
-		opacity: 1;
-	}
-}
-
 .contact-section {
-	height: 50vh;
 	width: 100%;
 	background-color: $slate;
 	position: fixed;
@@ -187,6 +171,10 @@ export default {
 	overflow: hidden;
 	animation: slide-in-blurred-bottom 0.5s both;
 	transform: all ease 0.5s;
+
+	@media (min-width: 775px) {
+		height: 50vh;
+	}
 
 	&__grid-container {
 		color: $black;

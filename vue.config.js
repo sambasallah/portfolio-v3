@@ -18,6 +18,7 @@ module.exports = {
 					@import "@/styles/_grid.scss";
 					@import "@/styles/_mixins.scss";
 					@import "@/styles/_utilities.scss";
+					@import "@/styles/_animations.scss";
         		`
 			}
 		}
