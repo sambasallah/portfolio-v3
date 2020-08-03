@@ -1,70 +1,70 @@
 .btn {
-    padding: 0.75em 1.75em;
-    font-size: 0.85em;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    background-color: transparent;
-    border-radius: 0.25em;
-    border: none;
-    transition: background-color .6s ease;
-    position: relative;
-    pointer-events: all;
+	padding: 0.75em 1.75em;
+	font-size: 0.85em;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: -0.5px;
+	background-color: transparent;
+	border-radius: 0.25em;
+	border: none;
+	transition: background-color 0.6s ease;
+	position: relative;
+	pointer-events: all;
 
-    &:after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 0;
-        top: 50%;
-        left: 50%;
-        transform-style: flat;
-        transform: translate3d(-50%, -50%, 0);
-        background: rgba(white, .25);
-        border-radius: 100%;
-        transition: width .3s ease, height .3s ease;
-    }
+	&:after {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 50%;
+		left: 50%;
+		transform-style: flat;
+		transform: translate3d(-50%, -50%, 0);
+		background: rgba(white, 0.25);
+		border-radius: 100%;
+		transition: width 0.3s ease, height 0.3s ease;
+	}
 
-    &:focus,
-    &:hover {
+	&:focus,
+	&:hover {
 		outline: 0;
-        cursor: pointer;
-        box-shadow: 0px 0px 12px -2px rgba($black, 0.5);
-    }
+		cursor: pointer;
+		box-shadow: 0px 0px 12px -2px rgba($black, 0.5);
+	}
 
-    &:active {
-        &:after {
-            width: 50px;
-            height: 50px;
-        }
-    }
+	&:active {
+		&:after {
+			width: 50px;
+			height: 50px;
+		}
+	}
 
-    &--primary {
-        background: $medium-slate;
+	&--primary {
+		background: $medium-slate;
 
-        &:focus,
-        &:hover {
-            background: darken($medium-slate, 10%);
-        }
-    }
+		&:focus,
+		&:hover {
+			background: darken($medium-slate, 10%);
+		}
+	}
 
-    &--secondary {
-        border: 2px solid $light-slate;
+	&--secondary {
+		border: 2px solid $light-slate;
 
-        &:focus,
-        &:hover {
-            background: $light-slate;
-        }
-    }
+		&:focus,
+		&:hover {
+			background: $light-slate;
+		}
+	}
 }
 
 .button-group {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 1em 0;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 1em 0;
 
-    button:not(:last-of-type) {
-        margin-right: 1em;
-    }
+	button:not(:last-of-type) {
+		margin-right: 1em;
+	}
 }

@@ -169,7 +169,7 @@ export default {
 	bottom: 0;
 	z-index: 10;
 	overflow: hidden;
-	animation: slide-in-blurred-bottom 0.5s both;
+	animation: slide-in-blurred-bottom 0.5s both; // TODO: fix animation
 	transform: all ease 0.5s;
 
 	@media (min-width: 775px) {

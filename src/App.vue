@@ -46,7 +46,7 @@ export default {
 	width: 100vw;
 
 	@media (min-width: $bp5) {
-		min-height: calc(100vh - 155px);
+		min-height: calc(100vh - 145px);
 		margin-left: 150px;
 		margin-top: 100px;
 		width: 75vw;

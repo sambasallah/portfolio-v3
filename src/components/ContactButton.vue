@@ -1,12 +1,15 @@
 <template>
 	<section class="contact-cta" :class="{ active: isContactDrawerOpen, 'position-bottom': routeIsHome }">
-		<button type="button" class="btn btn--secondary contact-button" @click.prevent="openContact">Contact</button>
+		<button type="button" class="contact-button" @click.prevent="openContact">
+			<svg viewBox="0 0 16 15" role="img" :class="{ active: isContactDrawerOpen }">
+				<use xlink:href="../assets/svgs/paper-plane.svg#paper-plane" />
+			</svg>
+		</button>
 	</section>
 </template>
 
 <script>
 /* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
 import { store, mutations } from 'src/store.js';
 
 export default {
@@ -34,7 +37,6 @@ export default {
 		grid-row-end: 3;
 		width: 100%;
 		height: 45px;
-		margin-bottom: 0.5em;
 		display: flex;
 		justify-content: center;
 		animation: slide-down 0.5s both;
@@ -50,6 +52,34 @@ export default {
 			position: absolute;
 			animation: slide-in-blurred-bottom 0.8s both;
 			bottom: 50vh;
+		}
+	}
+
+	&-button {
+		background: none;
+		border: none;
+
+		&:focus {
+			outline: 0;
+		}
+
+		svg {
+			height: 2em;
+			color: $mint;
+			text-shadow: 0 1px 2px lighten($white, 40%);
+			transition: color 0.6s ease;
+
+			&:hover,
+			&:focus {
+				cursor: pointer;
+				color: lighten(#383d95, 20%);
+			}
+
+			&:active,
+			&.active {
+				cursor: pointer;
+				color: lighten(#383d95, 10%);
+			}
 		}
 	}
 }
