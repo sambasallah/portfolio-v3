@@ -3,7 +3,7 @@
 		<button
 			type="button"
 			class="hamburger-button"
-			:class="{ 'active' : isBurgerActive }"
+			:class="{ active: isBurgerActive }"
 			@click.prevent="toggle"
 			:title="hamburgerTitle"
 		>
@@ -11,7 +11,7 @@
 			<span class="bar"></span>
 			<span class="bar"></span>
 		</button>
-		<span class="hamburger-title" :class="{ 'active' : isBurgerActive }">{{ hamburgerTitle }}</span>
+		<span class="hamburger-title" :class="{ active: isBurgerActive }">{{ hamburgerTitle }}</span>
 	</div>
 </template>
 
@@ -59,13 +59,11 @@ export default {
 
 	.bar {
 		background-color: $body-text;
-		// background-color: $purple;
 		position: absolute;
 		right: 0;
 		left: 0;
 		height: 2px;
-		transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
-			opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+		transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
 			background-color 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 
 		&:nth-of-type(1) {
@@ -82,7 +80,8 @@ export default {
 		}
 	}
 
-	&:hover .bar {
+	&:hover .bar,
+	&:focus .bar {
 		background-color: $mint;
 
 		&:nth-of-type(2) {
@@ -121,8 +120,8 @@ export default {
 
 .hamburger-title {
 	color: $body-text;
-	font-size: 0.8em;
-	font-weight: 200;
+	font-size: 0.85em;
+	font-weight: 300;
 	text-transform: uppercase;
 	position: absolute;
 	margin-top: -7px;

@@ -6,29 +6,36 @@
 		</header>
 
 		<p>
-			My passion for web development started around the age of 11 with
-			Invisionfree forums and learning what CSS was and how to create different
-			skins. Then the discovery of MySpace happened, and it was all downhill
-			from there (well, maybe not downhill, since my obsession eventually landed
-			me into a career).
+			My passion for web development started around the age of 11 with Invisionfree forums and learning what CSS was and how to create different
+			skins. Then the discovery of MySpace happened, and it was all downhill from there (well, maybe not downhill, since my obsession eventually landed
+			me into a career). I eventually went to college where I got my Associate's of Applied Sciences in Website Programming.
 		</p>
 		<p>
-			I am a front-end engineer located in the Columbia, South Carolina metro
-			area
-			<svg viewBox="0 0 19 16" class="sc" role="img" labelledby="palmTitle"><title id="palmTitle">Palm tree to resemble South Carolina</title><use xlink:href="../assets/images/south-carolina.svg#south-carolina" /></svg> (but my roots are from Michigan
-			<svg viewBox="0 0 16 15" class="mi" role="img" labelledby="mittenTitle"><title id="mittenTitle">Winter mitten depicting the shape of Michigan</title><use xlink:href="../assets/images/michigan.svg#michigan" /></svg> ). I have extensive experience with
-			sematic HTML, SCSS, and vanilla JavaScript (ES6+). My current pathway is
-			aligned with JavaScript development, with a current focus in VueJs. Vue
-			test utils and Jest are also in my JavaScript arsenal, ya know, to make
-			sure everything is working smoothly.
+			I am a frontend engineer located in the Columbia, South Carolina metro area
+			<svg
+				viewBox="0 0 19 16"
+				class="sc"
+				role="img"
+				labelledby="palmTitle"
+			>
+				<title id="palmTitle">Palm tree to resemble South Carolina</title>
+				<use xlink:href="../assets/images/south-carolina.svg#south-carolina" />
+			</svg> (but my roots are from Michigan
+			<svg
+				viewBox="0 0 16 15"
+				class="mi"
+				role="img"
+				labelledby="mittenTitle"
+			>
+				<title id="mittenTitle">Winter mitten depicting the shape of Michigan</title>
+				<use xlink:href="../assets/images/michigan.svg#michigan" />
+			</svg> ). I have extensive experience with sematic HTML, SCSS, and vanilla JavaScript (ES6+). My current pathway is aligned with JavaScript development, with a focus in VueJs, but anything on the frontend spectrum is fair game.
 		</p>
 		<p>
-			By daylight, I click away at my rainbow backlight mechanical keyboard. In
-			my spare time, I am a reader of sci-fi and mystery books, an enjoyer of
-			psychological thrillers, and have a newfound enjoyment with playing
-			Dungeons &amp; Dragons.
+			By daylight, I click away at my rainbow backlight mechanical keyboard. In my spare time, I am a reader of sci-fi and mystery books, an enjoyer of
+			psychological thrillers, and have a newfound enjoyment with playing Dungeons &amp; Dragons.
 		</p>
-		<span>¯\(ツ)/¯ and (╯°□°）╯︵ ┻━┻ are my two natural states</span>
+		<span>¯\(ツ)/¯ and (╯°□°）╯︵ ┻━┻ are my two natural states.</span>
 	</div>
 </template>
 

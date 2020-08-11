@@ -1,16 +1,14 @@
 <template>
-	<section v-if="isContactDrawerOpen" class="contact-section">
+	<section v-if="isContactDrawerOpen" class="contact-section" id="contact-section">
 		<h1>Get in Touch</h1>
 
 		<div class="contact-section__grid-container grid-container">
 			<section class="contact">
 				<p>
-					<strong>New Project?</strong> Great! I'm currently accepting new projects and would love to hear about yours.
+					New project? Need a website? Great! I'm currently accepting new projects and would love to hear about your
+					idea.
 				</p>
-				<p>
-					<strong>Interested in More?</strong> Want to see more of my work? Let me know and I'll gladly send more
-					examples!
-				</p>
+				<p>Interested in seeing more examples of my work?</p>
 				<h3>Connect with me!</h3>
 
 				<ul class="contact-social-links">
@@ -47,7 +45,7 @@
 
 			<section class="form">
 				<h2>Send a Message</h2>
-				<form>
+				<form v-if="!messageSent" @submit.prevent="processForm">
 					<div class="form-col">
 						<div class="form-input">
 							<label for="name">
@@ -58,6 +56,7 @@
 								type="text"
 								id="name"
 								name="name"
+								v-model="name"
 								@keyup="handleKeyUp"
 								@blur="handleBlur"
 								@focus="handleFocus"
@@ -73,6 +72,7 @@
 								type="email"
 								id="email"
 								name="email"
+								v-model="email"
 								@keyup="handleKeyUp"
 								@blur="handleBlur"
 								@focus="handleFocus"
@@ -85,6 +85,7 @@
 								type="tel"
 								id="email"
 								name="phone"
+								v-model="phone"
 								@keyup="handleKeyUp"
 								@blur="handleBlur"
 								@focus="handleFocus"
@@ -95,13 +96,14 @@
 					<div class="form-col">
 						<div class="form-input">
 							<label for="message">
-								Leave a brief description of your project
+								Message
 								<span class="req">*</span>
 							</label>
 							<textarea
 								required
 								name="message"
 								id="message"
+								v-model="message"
 								@keyup="handleKeyUp"
 								@blur="handleBlur"
 								@focus="handleFocus"
@@ -112,7 +114,7 @@
 				</form>
 			</section>
 		</div>
-		<p>handcrafted with &#x2764; {{ new Date().getFullYear() }}</p>
+		<p class="small">handcrafted with <span>&#x2764;</span> {{ new Date().getFullYear() }}</p>
 	</section>
 </template>
 
@@ -120,9 +122,19 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import { store } from 'src/store.js';
+import emailjs from 'emailjs-com';
 
 export default {
 	name: 'Contact',
+	data() {
+		return {
+			name: '',
+			email: '',
+			phone: '',
+			message: '',
+			messageSent: false
+		};
+	},
 	computed: {
 		isContactDrawerOpen() {
 			return store.isContactOpen;
@@ -130,6 +142,7 @@ export default {
 	},
 	methods: {
 		formatPhone(e) {
+			console.log('format', e.target.value);
 			const digit = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
 			e.target.value = !digit[2] ? digit[1] : `(${digit[1]}) ${digit[2]}${digit[3] ? `-${digit[3]}` : ''}`;
 		},
@@ -156,6 +169,21 @@ export default {
 			} else if (e.target.value !== '') {
 				label.classList.add('highlight');
 			}
+		},
+		processForm(e) {
+			// change the button to a spinner on submit and disable button
+			const submitButton = document.getElementById('submit');
+			submitButton.innerHTML = '';
+			submitButton.disabled = true;
+			emailjs.sendForm('cweav3r_gmail_com', 'portfolio_contact', e.target, 'user_K0KkfANhmcimJeLuISYn7').then(
+				result => {
+					this.messageSent = true;
+					console.log('SUCCESS!', result.status, result.text);
+				},
+				error => {
+					console.log('FAILED...', error);
+				}
+			);
 		}
 	}
 };
@@ -171,9 +199,29 @@ export default {
 	overflow: hidden;
 	animation: slide-in-blurred-bottom 0.5s both; // TODO: fix animation
 	transform: all ease 0.5s;
+	padding: 0.5em 1em;
 
 	@media (min-width: 775px) {
 		height: 50vh;
+	}
+
+	h3 {
+		font-family: $sans-serif;
+		font-weight: 600;
+		font-style: italic;
+	}
+
+	.small {
+		font-size: 0.85em;
+		padding: 0;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+
+		span {
+			color: $purple;
+		}
 	}
 
 	&__grid-container {

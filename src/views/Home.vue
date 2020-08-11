@@ -113,7 +113,7 @@ export default {
 	}
 
 	@media (min-width: $bp5) {
-		margin-left: 15%;
+		margin-left: 150px;
 	}
 
 	@media (max-width: $bp5) {

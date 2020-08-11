@@ -8,34 +8,56 @@ import StyleGuide from '@/views/StyleGuide.vue';
 
 Vue.use(Router);
 
-export default new Router({
-	mode: 'history',
-	base: process.env.BASE_URL,
-	routes: [
-		{
-			path: '/',
-			name: 'home',
-			component: Home
-		},
-		{
-			path: '/about',
-			name: 'about',
-			component: About
-		},
-		{
-			path: '/projects',
-			name: 'projects',
-			component: Projects
-		},
-		{
-			path: '/resume',
-			name: 'resume',
-			component: Resume
-		},
-		{
-			path: '/style-guide',
-			name: 'style-guide',
-			component: StyleGuide
+const routes = [
+	{
+		path: '/',
+		name: 'home',
+		component: Home,
+		meta: {
+			title: 'Frontend Engineer | Christa Weaver - South Carolina'
 		}
-	]
+	},
+	{
+		path: '/about',
+		name: 'about',
+		component: About,
+		meta: {
+			title: 'About | Christa Weaver - Frontend Engineer'
+		}
+	},
+	{
+		path: '/projects',
+		name: 'projects',
+		component: Projects,
+		meta: {
+			title: 'Projects | Christa Weaver - Frontend Engineer'
+		}
+	},
+	{
+		path: '/resume',
+		name: 'resume',
+		component: Resume,
+		meta: {
+			title: 'Resume | Christa Weaver - Frontend Engineer'
+		}
+	},
+	{
+		path: '/style-guide',
+		name: 'style-guide',
+		component: StyleGuide
+	}
+];
+
+const vueRouter = new Router({
+	routes,
+	mode: 'history',
+	base: process.env.BASE_URL
 });
+
+vueRouter.beforeEach((to, from, next) => {
+	to.meta.title ? (document.title = to.meta.title) : (document.title = 'Frontend Engineer | Christa Weaver');
+
+	next();
+});
+
+export default vueRouter;

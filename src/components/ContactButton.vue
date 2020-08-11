@@ -1,5 +1,9 @@
 <template>
-	<section class="contact-cta" :class="{ active: isContactDrawerOpen, 'position-bottom': routeIsHome }">
+	<section
+		class="contact-cta"
+		:class="{ active: isContactDrawerOpen, 'position-bottom': routeIsHome }"
+		:style="{ bottom: contactHeight + 'px' }"
+	>
 		<button type="button" class="contact-button" @click.prevent="openContact">
 			<svg viewBox="0 0 16 15" role="img" :class="{ active: isContactDrawerOpen }">
 				<use xlink:href="../assets/svgs/paper-plane.svg#paper-plane" />
@@ -9,11 +13,17 @@
 </template>
 
 <script>
+import Vue from 'vue';
 /* eslint-disable import/extensions */
 import { store, mutations } from 'src/store.js';
 
 export default {
 	name: 'ContactButton',
+	data() {
+		return {
+			contactHeight: 0
+		};
+	},
 	computed: {
 		isContactDrawerOpen() {
 			return store.isContactOpen;
@@ -25,6 +35,14 @@ export default {
 	methods: {
 		openContact() {
 			mutations.toggleContact();
+
+			Vue.nextTick(() => {
+				if (this.contactHeight === 0) {
+					this.contactHeight = document.getElementById('contact-section').offsetHeight;
+				} else {
+					this.contactHeight = 0;
+				}
+			});
 		}
 	}
 };
@@ -49,9 +67,8 @@ export default {
 		}
 
 		&.active {
-			position: absolute;
+			position: fixed;
 			animation: slide-in-blurred-bottom 0.8s both;
-			bottom: 50vh;
 		}
 	}
 

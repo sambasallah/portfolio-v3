@@ -2,8 +2,7 @@
 	<nav :class="isMenuOpen ? 'navbar active' : 'navbar'">
 		<hamburger />
 		<span class="brand" title="Christa Weaver">
-			c
-			<strong>w</strong>
+			cw
 		</span>
 
 		<transition name="fade" mode="out-in">
@@ -42,6 +41,7 @@ export default {
 	top: 0;
 	background-color: rgba($slate, 0.2); // #dbdde3
 	width: 100%;
+	padding: 0.25em 1em;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -49,20 +49,20 @@ export default {
 
 	@media screen and (min-width: $bp5) {
 		height: 100%;
-		width: 100px;
+		width: 85px;
 		border-right: 1px solid $black;
+		padding: 0;
 		flex-direction: column;
 		align-items: unset;
 	}
 
-	&:after {
-		content: ' ';
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		height: 100%;
-
-		@media screen and (min-width: $bp5) {
+	@media screen and (min-width: $bp5) {
+		&:after {
+			content: ' ';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			height: 100%;
 			right: -8px;
 			border: 1px solid $black;
 		}
