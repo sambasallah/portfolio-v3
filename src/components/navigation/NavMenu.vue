@@ -2,18 +2,14 @@
 	<div class="navbar-menu">
 		<ul class="navbar-items">
 			<li v-for="(route, index) in $router.options.routes" :key="index">
-				<router-link :to="route.path" @click.native="closeMenu">
-					{{ route.name }}
-				</router-link>
+				<router-link :to="route.path" @click.native="closeMenu">{{ route.name }}</router-link>
 			</li>
 		</ul>
 	</div>
 </template>
 
 <script>
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
-import { mutations } from 'src/store.js';
+import { mutations } from 'src/store';
 
 export default {
 	name: 'NavMenu',
@@ -31,6 +27,7 @@ export default {
 		position: absolute;
 		z-index: -1;
 		top: 0;
+		left: 0;
 		height: 100vh;
 		width: 100vw;
 		background: rgba($black, 0.8);

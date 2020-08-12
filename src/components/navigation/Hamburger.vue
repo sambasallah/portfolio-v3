@@ -16,9 +16,7 @@
 </template>
 
 <script>
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
-import { store, mutations } from 'src/store.js';
+import { store, mutations } from 'src/store';
 
 export default {
 	name: 'Hamburger',
@@ -39,6 +37,7 @@ export default {
 </script>
 <style lang="scss">
 .hamburger {
+	margin-bottom: 0.25em;
 	@media screen and (min-width: $bp5) {
 		margin-left: 0.5em;
 	}

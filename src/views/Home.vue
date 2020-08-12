@@ -117,13 +117,15 @@ export default {
 	}
 
 	@media (max-width: $bp5) {
-		align-items: center;
 		width: 100%;
+		align-items: center;
 	}
 
 	h1 {
-		font-size: 6em;
 		animation: fade-in 0.2s ease-in;
+		@media (min-width: $bp5) {
+			font-size: 6em;
+		}
 	}
 
 	p {
