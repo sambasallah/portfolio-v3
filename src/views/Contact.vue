@@ -51,68 +51,69 @@
 				<h2>Send a Message</h2>
 				<form v-if="!messageSent" @submit.prevent="processForm">
 					<div class="form-col">
-						<div class="form-input">
-							<label for="name">
-								Name
-								<span class="req">*</span>
-							</label>
+						<div class="form-group">
 							<input
 								type="text"
 								id="name"
 								name="name"
+								class="form-control"
 								v-model="name"
 								@keyup="handleKeyUp"
 								@blur="handleBlur"
-								@focus="handleFocus"
 								required
 							/>
-						</div>
-						<div class="form-input">
-							<label for="email">
-								Email
+							<label for="name">
+								Name
 								<span class="req">*</span>
 							</label>
+						</div>
+						<div class="form-group">
 							<input
 								type="email"
 								id="email"
 								name="email"
+								class="form-control"
 								v-model="email"
 								@keyup="handleKeyUp"
 								@blur="handleBlur"
-								@focus="handleFocus"
 								required
 							/>
+							<label for="email">
+								Email
+								<span class="req">*</span>
+							</label>
 						</div>
-						<div class="form-input">
-							<label for="phone">Phone</label>
+						<div class="form-group">
 							<input
 								type="tel"
-								id="email"
+								id="phone"
 								name="phone"
+								class="form-control"
 								v-model="phone"
 								@keyup="handleKeyUp"
 								@blur="handleBlur"
-								@focus="handleFocus"
 								@input="formatPhone($event)"
 							/>
+							<label for="phone">Phone</label>
 						</div>
 					</div>
 					<div class="form-col">
-						<div class="form-input">
-							<label for="message">
-								Message
-								<span class="req">*</span>
-							</label>
+						<div class="form-group">
 							<textarea
 								required
 								name="message"
+								class="form-control"
 								id="message"
 								v-model="message"
 								@keyup="handleKeyUp"
 								@blur="handleBlur"
-								@focus="handleFocus"
 							></textarea>
+							<label for="message">
+								Message
+								<span class="req">*</span>
+							</label>
 						</div>
+
 						<button type="submit" class="btn btn--primary">Send</button>
 					</div>
 				</form>
@@ -157,28 +158,12 @@ export default {
 			e.target.value = !digit[2] ? digit[1] : `(${digit[1]}) ${digit[2]}${digit[3] ? `-${digit[3]}` : ''}`;
 		},
 		handleKeyUp(e) {
-			const label = e.target.previousSibling;
-			if (e.target.value === '') {
-				label.classList.remove('active', 'highlight');
-			} else {
-				label.classList.add('active', 'highlight');
-			}
+			const label = e.target.nextSibling;
+			e.target.value === '' ? label.classList.remove('filled') : label.classList.add('filled');
 		},
 		handleBlur(e) {
-			const label = e.target.previousSibling;
-			if (e.target.value === '') {
-				label.classList.remove('active', 'highlight');
-			} else {
-				label.classList.remove('highlight');
-			}
-		},
-		handleFocus(e) {
-			const label = e.target.previousSibling;
-			if (e.target.value === '') {
-				label.classList.remove('highlight');
-			} else if (e.target.value !== '') {
-				label.classList.add('highlight');
-			}
+			const label = e.target.nextSibling;
+			if (e.target.value === '') label.classList.remove('filled');
 		},
 		processForm(e) {
 			// change the button to a spinner on submit and disable button
@@ -283,19 +268,54 @@ export default {
 			grid-area: form;
 			padding: 0;
 
+			@mixin label-top {
+				top: 0;
+				opacity: 1;
+				color: $purple;
+				font-size: 0.8em;
+				transition: 0.2s ease all;
+			}
+
 			form {
 				display: flex;
+				flex-wrap: wrap;
+				margin: 0 1em;
+
+				input,
+				textarea {
+					font-family: $sans-serif;
+					font-size: 1.15rem;
+					color: $black;
+					width: 100%;
+					padding: 0.5rem 1rem;
+					background: none;
+					border: 1px solid rgba($black, 0.4);
+					border-radius: 4px;
+					transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+					textarea {
+						height: 120px;
+					}
+
+					&:focus,
+					&:hover {
+						outline: 0;
+					}
+				}
 
 				.form {
 					&-col {
-						&:first-of-type {
-							margin-right: 1rem;
+						@media (min-width: $bp5) {
+							flex: 1;
 						}
 
-						$button-width: 150px;
-						$spinner-width: $button-width/6;
+						&:first-of-type {
+							margin-right: 1.5em;
+						}
 
 						.btn {
+							$button-width: 150px;
+							$spinner-width: $button-width/6;
 							float: right;
 							appearance: none;
 							border: 0;
@@ -360,66 +380,72 @@ export default {
 						}
 					}
 
-					&-input {
+					&-group {
 						position: relative;
-						margin-bottom: 28px;
-					}
-				}
+						padding-top: 16px;
+						margin-bottom: 16px;
 
-				label {
-					font-size: 1.1rem;
-					font-weight: 700;
-					position: absolute;
-					transform: translateY(10px);
-					left: 1rem;
-					color: $light-slate;
-					transition: all 0.25s ease;
-					-webkit-backface-visibility: hidden;
-					pointer-events: none;
-					line-height: 1.15;
+						label {
+							position: absolute;
+							top: 20px;
+							left: 0;
+							bottom: 0;
+							z-index: 2;
+							width: 100%;
+							font-weight: 300;
+							opacity: 0.5;
+							cursor: text;
+							transition: 0.2s ease all;
+							margin: 0;
 
-					.req {
-						margin: 2px;
-						color: $purple;
-					}
+							&:after {
+								content: '';
+								position: absolute;
+								bottom: 0;
+								left: 45%;
+								height: 2px;
+								width: 10px;
+								visibility: hidden;
+								background-color: $purple;
+								transition: 0.2s ease all;
+							}
 
-					&.highlight {
-						color: $purple;
-					}
+							.req {
+								margin: 2px;
+								color: $mint;
+							}
 
-					&.active {
-						transform: translateY(46px);
-						left: 2px;
-						font-size: 1rem;
-
-						.req {
-							opacity: 0;
+							&.filled {
+								@include label-top;
+								font-weight: 600;
+							}
 						}
 					}
-				}
 
-				input,
-				textarea {
-					font-family: $sans-serif;
-					display: block;
-					font-size: 1.25rem;
-					color: $black;
-					width: 100%;
-					padding: 0.5rem 1rem;
-					background: none;
-					border: 1px solid rgba($black, 0.4);
-					border-radius: 4px;
-					transition: border-color 0.25s ease, box-shadow 0.25s ease;
+					&-control {
+						position: relative;
+						z-index: 1;
+						border-radius: 0;
+						border-width: 0 0 1px;
+						border-bottom-color: rgba($black, 0.25);
+						height: auto;
+						padding: 3px 0 5px;
 
-					&:focus,
-					&:hover {
-						outline: 0;
-						border-color: $purple;
+						&:focus {
+							box-shadow: none;
+							border-bottom-color: rgba($black, 0.12);
+
+							~ label {
+								@include label-top;
+
+								&:after {
+									visibility: visible;
+									width: 100%;
+									left: 0;
+								}
+							}
+						}
 					}
-				}
-
-				textarea {
-					margin: 0;
 				}
 			}
 		}
