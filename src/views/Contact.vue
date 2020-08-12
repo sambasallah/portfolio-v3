@@ -13,7 +13,11 @@
 
 				<ul class="contact-social-links">
 					<li>
-						<a href="https://github.com/cweave" target="_blank" title="Check out Christa's Github repositories">
+						<a
+							href="https://github.com/cweave"
+							target="_blank"
+							title="Check out Christa's Github repositories"
+						>
 							<svg viewBox="0 0 16 15" role="img" labelledby="githubTitle">
 								<title id="githubTitle">Github logo</title>
 								<use xlink:href="../assets/svgs/github.svg#github" />
@@ -112,16 +116,22 @@
 						<button type="submit" class="btn btn--primary">Send</button>
 					</div>
 				</form>
+				<p v-else>
+					<span class="linebreak"></span>
+					Thanks for getting in touch with me! I'll be in contact with you shortly :)
+				</p>
 			</section>
 		</div>
-		<p class="small">handcrafted with <span>&#x2764;</span> {{ new Date().getFullYear() }}</p>
+		<p class="small">
+			handcrafted with
+			<span>&#x2764;</span>
+			{{ new Date().getFullYear() }}
+		</p>
 	</section>
 </template>
 
 <script>
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
-import { store } from 'src/store.js';
+import { store } from 'src/store';
 import emailjs from 'emailjs-com';
 
 export default {
@@ -172,16 +182,20 @@ export default {
 		},
 		processForm(e) {
 			// change the button to a spinner on submit and disable button
-			const submitButton = document.getElementById('submit');
-			submitButton.innerHTML = '';
+			const submitButton = document.querySelector('button[type=submit]');
+			submitButton.classList.add('animate');
 			submitButton.disabled = true;
 			emailjs.sendForm('cweav3r_gmail_com', 'portfolio_contact', e.target, 'user_K0KkfANhmcimJeLuISYn7').then(
 				result => {
 					this.messageSent = true;
+					submitButton.classList.remove('animate');
+					submitButton.classList.add('success');
 					console.log('SUCCESS!', result.status, result.text);
 				},
 				error => {
 					console.log('FAILED...', error);
+					submitButton.classList.remove('animate');
+					submitButton.classList.add('error');
 				}
 			);
 		}
@@ -278,8 +292,71 @@ export default {
 							margin-right: 1rem;
 						}
 
+						$button-width: 150px;
+						$spinner-width: $button-width/6;
+
 						.btn {
 							float: right;
+							appearance: none;
+							border: 0;
+							transition: border-radius linear 0.05s, width linear 0.05s;
+
+							&.success:before {
+								position: absolute;
+								content: '';
+								width: $spinner-width;
+								height: $spinner-width/2;
+								border: 4px solid $white;
+								border-right: 0;
+								border-top: 0;
+								left: 50%;
+								top: 50%;
+								transform: translate(-50%, -50%) rotate(0deg) scale(0);
+								animation: success ease-in 0.15s forwards;
+								animation-delay: 2.5s;
+							}
+
+							&.error {
+								position: relative;
+								animation: vibrate ease-in 0.5s forwards;
+								animation-delay: 2.5s;
+
+								&:before {
+									color: $white;
+									position: absolute;
+									content: '!';
+									font-size: 1.8rem;
+									font-weight: bold;
+									text-align: center;
+									left: 50%;
+									top: 50%;
+									transform: translate(-50%, -50%) scale(0);
+									animation: error ease-in 0.5s forwards;
+									animation-delay: 2.5s;
+								}
+							}
+
+							&.animate {
+								width: $button-width/2.2;
+								height: $button-width/2.2;
+								min-width: 0;
+								border-radius: 50%;
+								color: transparent;
+
+								&:after {
+									position: absolute;
+									content: '';
+									width: $spinner-width;
+									height: $spinner-width;
+									border: 4px solid $white;
+									border-radius: 50%;
+									border-left-color: transparent;
+									left: 50%;
+									top: 50%;
+									transform: translate(-50%, -50%);
+									animation: spin ease-in 2.5s forwards;
+								}
+							}
 						}
 					}
 

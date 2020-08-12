@@ -280,6 +280,39 @@ a {
 	}
 }
 
+.linebreak {
+	height: 2px;
+	overflow: visible;
+	color: $white;
+	position: relative;
+	margin: 1.25em auto;
+	display: block;
+
+	&::before {
+		content: '';
+		background: linear-gradient(to right, transparent, currentColor, transparent);
+		height: 2px;
+		width: 100%;
+		position: absolute;
+		left: 0;
+	}
+	&[data-content] {
+		text-align: center;
+		&::after {
+			content: attr(data-content);
+			position: relative;
+			background: $white;
+			padding: 0 1.5rem;
+			top: -0.475em;
+			font-size: 3em;
+			line-height: 1;
+			font-family: serif;
+			font-style: italic;
+			color: currentColor;
+		}
+	}
+}
+
 .content {
 	display: flex;
 	flex-direction: column;
