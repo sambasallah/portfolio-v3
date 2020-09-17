@@ -77,6 +77,7 @@ export default {
 	}
 
 	&.active {
+		transition: all 0.3s ease;
 		background-color: rgba($slate, 0.9);
 	}
 

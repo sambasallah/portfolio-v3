@@ -1,0 +1,60 @@
+{
+	"projects": [
+		{
+			"name": "Portfolio v3",
+			"url": "",
+			"imagePreview": "portfolio-v3.jpg",
+			"description": "New and improved portfolio to utilize Vue. Condensed data into JSON files for easier data consumption. Migrated services to Netlify for easy deployment. Revamped and simplified styling.",
+			"technology": [
+				"Vue",
+				"SCSS",
+				"JavaScript",
+				"JSON",
+				"Netlify",
+				"<a href=\"https://github.com/cweave/portfolio-v3\" target=\"_blank\" title=\"View portfolio v2 on Github\" rel=\"noreferrer noopener\">View on Github</a>"
+			]
+		},
+		{
+			"name": "Chinquiry",
+			"url": "https://www.chinquiry.com/",
+			"imagePreview": "chinquiry-vue.jpg",
+			"description": "Rebuilt an old chinchilla information website with Vue.js and SCSS for styling. Took advantage of Vue routing for navigation and to get experience working with a single page application environment. Utilized <a href=\"https://www.netlify.com\" target=\"_blank\" rel=\"noreferrer noopener\" title=\"Netlify - CI/CD tool\">Netlify</a> for hands on experience with continuous integration/continuous deployment (CI/CD) for personal projects.",
+			"technology": [
+				"Vue",
+				"SCSS",
+				"Netlify",
+				"<a href=\"https://github.com/cweave/chinquiry-vue\" target=\"_blank\" title=\"View Chinquiry Vue.js Project on Github\" rel=\"noreferrer noopener\">View on Github</a>"
+			]
+		},
+		{
+			"name": "Portfolio v2",
+			"url": "https://portfoliov2.christaweaver.com/",
+			"imagePreview": "portfolio.jpg",
+			"description": "Removed CSS framework and refactored styles to SCSS. Removed jQuery functionality and converted all functionality to utilize Vanilla JavaScript. Improved Accessibility by 18%, Best Practices by 20%, SEO by 11%, and Performance from 13% to 33% on Desktop and Mobile Experiences based on Lighthouse Audits.",
+			"technology": [
+				"HTML",
+				"SCSS",
+				"JavaScript",
+				"<a href=\"https://github.com/cweave/portfolio-rewrite\" target=\"_blank\" title=\"View portfolio v2 on Github\" rel=\"noreferrer noopener\">View on Github</a>"
+			]
+		},
+		{
+			"name": "United Vending &amp; Market Services, Inc.",
+			"url": "http://uvmsi.christaweaver.com/",
+			"imagePreview": "united-vending.jpg",
+			"description": "Local vending and market services company. Launched in November of 2017, UVMSI was the \"first\" website created on my own outside of the work environment.",
+			"technology": ["W3.CSS", "HTML", "CSS", "jQuery"]
+		},
+		{
+			"name": "Chinquiry",
+			"url": "http://chinquiry.christaweaver.com/",
+			"imagePreview": "chinquiry.jpg",
+			"description": "Circa early 2015. This was my first live website created in a course at Macomb Community College. Handcrafted with straight HTML and CSS. A modern, responsive Chinquiry is in the works.",
+			"technology": [
+				"HTML",
+				"CSS",
+				"<a href=\"https://github.com/cweave/chinquiry\" target=\"_blank\" title=\"View Chinquiry on Github\" rel=\"noreferrer noopener\">View on Github</a>"
+			]
+		}
+	]
+}

@@ -4,8 +4,21 @@
 		:class="{ active: isContactDrawerOpen, 'position-bottom': routeIsHome }"
 		:style="{ bottom: contactHeight + 'px' }"
 	>
-		<button type="button" class="contact-button" @click.prevent="openContact">
-			<svg viewBox="0 0 16 15" role="img" :class="{ active: isContactDrawerOpen }">
+		<button
+			type="button"
+			class="contact-button"
+			@click.prevent="openContact"
+			aria-label="Open Contact Section"
+		>
+			<svg
+				viewBox="0 0 16 15"
+				role="img"
+				:class="{ active: isContactDrawerOpen }"
+				labelledby="paperPlane"
+			>
+				<title
+					id="paperPlane"
+				>Paper airplane used to symbol throwing a paper airplane note to communicate</title>
 				<use xlink:href="../assets/svgs/paper-plane.svg#paper-plane" />
 			</svg>
 		</button>
