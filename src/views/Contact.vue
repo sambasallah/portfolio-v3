@@ -125,7 +125,7 @@
 		</div>
 		<p class="small">
 			handcrafted with
-			<span>&#x2764;</span>
+			<span role="img" aria-label="love">&#x2764;</span>
 			{{ new Date().getFullYear() }}
 		</p>
 	</section>
@@ -199,10 +199,6 @@ export default {
 	animation: slide-in-blurred-bottom 0.5s both; // TODO: fix animation
 	transform: all ease 0.5s;
 	padding: 0.5em 1em;
-
-	@media (min-width: 775px) {
-		height: 50vh;
-	}
 
 	h3 {
 		font-family: $sans-serif;

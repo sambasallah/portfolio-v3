@@ -1,12 +1,9 @@
 <template>
 	<div class="git-projects">
-		<ul>
-			<li v-for="event in gitEvents" :key="event.index">{{ event.type }} {{ event.repo }}</li>
-		</ul>
-
 		<div class="grid-container">
 			<div v-for="repo in repoData" :key="repo.index" class="git-projects__repos">
 				<h3>{{ repo.name }}</h3>
+				<span class="git-projects__repos-updated">Last updated: {{ repo.lastUpdated }}</span>
 				<p>{{ repo.description }}</p>
 				<ul class="technologies-list no-list no-spacing">
 					<li v-if="repo.language">{{ repo.language }}</li>
@@ -18,22 +15,12 @@
 						>View Repo</a>
 					</li>
 				</ul>
-				<span>{{ repo.lastUpdated }}</span>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-const getGitActivity = () => {
-	const api = 'https://api.github.com/users/cweave/events';
-	return fetch(api).then(response => {
-		if (!response.ok) {
-			throw new Error('Network response was not ok');
-		}
-		return response.json();
-	});
-};
 
 const getGitRepos = () => {
 	const api = 'https://api.github.com/users/cweave/repos';
@@ -49,25 +36,10 @@ export default {
 	name: 'GitUpdates',
 	data() {
 		return {
-			gitEvents: [],
 			repoData: []
 		};
 	},
 	mounted() {
-		getGitActivity().then(result => {
-			result
-				.filter(event => event.type !== 'WatchEvent' && event.type !== 'IssueCommentEvent')
-				.filter((i, index) => index < 5)
-				.map(i => {
-					const { type, repo, payload } = i;
-					return this.gitEvents.push({
-						type,
-						repo,
-						payload
-					});
-				});
-		});
-
 		getGitRepos().then(result => {
 			// show active repos from the last 90 days
 			const days = 90;
@@ -119,17 +91,28 @@ $maxWidth: 1fr;
 
 	&__repos {
 		text-shadow: 0 1px 1px lighten($black, 20%);
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+		position: relative;
 
 		h3 {
 			color: $mint;
 			margin: 0;
 		}
 
-		a {
-			background-image: none;
+		p {
+			font-weight: 300;
+		}
+
+		&-updated {
+			font-size: 0.75em;
+			font-style: italic;
+			font-weight: 300;
+		}
+
+		.technologies-list {
+			position: absolute;
+			bottom: 0;
+			padding-bottom: 1em;
+			margin-top: 0.5em;
 		}
 	}
 }

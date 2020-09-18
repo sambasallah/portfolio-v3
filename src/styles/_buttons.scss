@@ -41,6 +41,7 @@
 
 	&--primary {
 		background: $medium-slate;
+		color: $black;
 
 		&:focus,
 		&:hover {
@@ -64,6 +65,7 @@
 	flex-wrap: wrap;
 	margin: 1em 0;
 
+	a:not(:last-of-type),
 	button:not(:last-of-type) {
 		margin-right: 1em;
 	}

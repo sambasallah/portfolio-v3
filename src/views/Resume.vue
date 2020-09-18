@@ -86,12 +86,15 @@ export default {
 		&:not(:last-of-type) {
 			margin-right: 5px;
 		}
+
+		a {
+			background-image: none;
+		}
 	}
 }
 
 .task-list {
 	li {
-
 		&:before {
 			content: '';
 			display: inline-block;

@@ -13,6 +13,7 @@ const routes = [
 		path: '/',
 		name: 'home',
 		component: Home,
+		displayInNav: true,
 		meta: {
 			title: 'Frontend Engineer | Christa Weaver - South Carolina'
 		}
@@ -21,6 +22,7 @@ const routes = [
 		path: '/about',
 		name: 'about',
 		component: About,
+		displayInNav: true,
 		meta: {
 			title: 'About | Christa Weaver - Frontend Engineer'
 		}
@@ -29,6 +31,7 @@ const routes = [
 		path: '/projects',
 		name: 'projects',
 		component: Projects,
+		displayInNav: true,
 		meta: {
 			title: 'Projects | Christa Weaver - Frontend Engineer'
 		}
@@ -37,6 +40,7 @@ const routes = [
 		path: '/resume',
 		name: 'resume',
 		component: Resume,
+		displayInNav: false,
 		meta: {
 			title: 'Resume | Christa Weaver - Frontend Engineer'
 		}
@@ -44,7 +48,8 @@ const routes = [
 	{
 		path: '/style-guide',
 		name: 'style-guide',
-		component: StyleGuide
+		component: StyleGuide,
+		displayInNav: false
 	}
 ];
 

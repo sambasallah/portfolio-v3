@@ -56,19 +56,19 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 .project {
 	&-container {
 		display: grid;
-		grid-gap: .75em;
-		grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+		grid-gap: 1.5em;
+		grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
 
 		@media screen and (max-width: 450px) {
 			grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
 		}
 
 		> * {
-			padding: 1em;
+			padding: 1em 0;
 		}
 
 		.technologies-list {

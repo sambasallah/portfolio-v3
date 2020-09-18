@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,900;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,900;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,700&display=swap');
 /* Breakpoint variables */
 $bp-small: 24.15;
 $bp-medium: 43.75;
@@ -122,8 +122,6 @@ h6,
 blockquote,
 figcaption,
 cite,
-i,
-em,
 b,
 strong,
 button,
@@ -132,7 +130,6 @@ p:first-letter {
 	font-family: 'Nunito', sans-serif;
 	font-weight: normal;
 	font-style: normal;
-	font-variation-settings: 'wght' $text-wght, 'ital' $text-ital;
 }
 
 /* Generic header styles */

@@ -36,6 +36,10 @@
 			psychological thrillers, and have a newfound enjoyment with playing Dungeons &amp; Dragons.
 		</p>
 		<span>¯\(ツ)/¯ and (╯°□°）╯︵ ┻━┻ are my two natural states.</span>
+
+		<div class="button-group">
+			<router-link to="resume" class="btn btn--primary">View Web Resume</router-link>
+		</div>
 	</div>
 </template>
 
@@ -45,7 +49,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .about-content {
 	&-header {
 		margin-bottom: 2rem;
@@ -81,6 +85,10 @@ export default {
 			fill: $skyblue;
 			color: $skyblue;
 		}
+	}
+
+	.button-group {
+		margin-top: 2em;
 	}
 }
 </style>

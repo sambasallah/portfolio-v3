@@ -2,7 +2,7 @@
 	<div class="navbar-menu">
 		<ul class="navbar-items">
 			<li v-for="(route, index) in $router.options.routes" :key="index">
-				<router-link :to="route.path" @click.native="closeMenu">{{ route.name }}</router-link>
+				<router-link v-if="route.displayInNav" :to="route.path" @click.native="closeMenu">{{ route.name }}</router-link>
 			</li>
 		</ul>
 	</div>
