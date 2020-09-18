@@ -2,6 +2,8 @@
 	<div class="projects-content">
 		<h1>Projects</h1>
 		<git-updates />
+
+		<h2>Web Projects</h2>
 		<project-card />
 	</div>
 </template>

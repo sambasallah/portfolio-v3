@@ -10,7 +10,6 @@
 				"SCSS",
 				"JavaScript",
 				"JSON",
-				"Netlify",
 				"<a href=\"https://github.com/cweave/portfolio-v3\" target=\"_blank\" title=\"View portfolio v2 on Github\" rel=\"noreferrer noopener\">View on Github</a>"
 			]
 		},
@@ -22,7 +21,7 @@
 			"technology": [
 				"Vue",
 				"SCSS",
-				"Netlify",
+				"JavaScript",
 				"<a href=\"https://github.com/cweave/chinquiry-vue\" target=\"_blank\" title=\"View Chinquiry Vue.js Project on Github\" rel=\"noreferrer noopener\">View on Github</a>"
 			]
 		},
@@ -39,7 +38,7 @@
 			]
 		},
 		{
-			"name": "United Vending &amp; Market Services, Inc.",
+			"name": "UVMSI",
 			"url": "http://uvmsi.christaweaver.com/",
 			"imagePreview": "united-vending.jpg",
 			"description": "Local vending and market services company. Launched in November of 2017, UVMSI was the \"first\" website created on my own outside of the work environment.",
