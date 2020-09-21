@@ -15,7 +15,7 @@
 						:src="require(`../assets/images/projects/${project.imagePreview}`)"
 						class="project-image"
 						:alt="`${project.name} photo preview`"
-						width="500"
+						width="420"
 						height="245"
 					/>
 					<svg v-if="project.url" viewBox="0 0 16 15" class="mi" role="img" labelledby="external">
@@ -30,7 +30,7 @@
 				:src="require(`../assets/images/projects/${project.imagePreview}`)"
 				class="project-image"
 				:alt="`${project.name} photo preview`"
-				width="500"
+				width="420"
 				height="245"
 			/>
 
@@ -63,7 +63,7 @@ export default {
 		grid-gap: 1.5em;
 		grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
 
-		@media screen and (max-width: 450px) {
+		@media screen and (max-width: $bp5) {
 			grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
 		}
 
@@ -86,6 +86,8 @@ export default {
 		.overlay {
 			position: relative;
 			margin-bottom: 1em;
+			max-width: 420px;
+			height: 245px;
 
 			&:hover svg {
 				opacity: 1;

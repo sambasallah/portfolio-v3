@@ -188,17 +188,25 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .contact-section {
 	width: 100%;
 	background-color: $slate;
 	position: fixed;
 	bottom: 0;
 	z-index: 10;
-	overflow: hidden;
 	animation: slide-in-blurred-bottom 0.5s both; // TODO: fix animation
 	transform: all ease 0.5s;
 	padding: 0.5em 1em;
+
+	@media screen and (max-width: $bp5) {
+		overflow-y: scroll;
+		top: 50px;
+	}
+
+	@media (min-width: 775px) {
+		min-height: 50vh;
+	}
 
 	h3 {
 		font-family: $sans-serif;
@@ -212,22 +220,31 @@ export default {
 		position: absolute;
 		bottom: 0;
 		width: 100%;
-		text-align: center;
 
 		span {
 			color: $purple;
 		}
 	}
 
-	&__grid-container {
-		color: $black;
-		margin: 1em;
+	$minWidth: 275px;
+	$maxWidth: 1fr;
 
-		> section {
+	.grid-container {
+		grid-template-columns: repeat(auto-fit, minmax($minWidth, $maxWidth));
+
+		@media screen and (max-width: 320px) {
+			grid-template-columns: repeat(auto-fill, minmax(100%, $maxWidth));
+		}
+
+		> * {
+			color: $black;
+			padding: 0;
 			background: none;
 			box-shadow: none;
 		}
+	}
 
+	&__grid-container {
 		& > section:nth-child(1) {
 			grid-area: contact;
 
@@ -301,6 +318,7 @@ export default {
 
 				.form {
 					&-col {
+						width: 100%;
 						@media (min-width: $bp5) {
 							flex: 1;
 						}

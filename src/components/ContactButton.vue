@@ -81,6 +81,7 @@ export default {
 
 		&.active {
 			position: fixed;
+			z-index: 11;
 			animation: slide-in-blurred-bottom 0.8s both;
 		}
 	}
@@ -109,6 +110,10 @@ export default {
 			&.active {
 				cursor: pointer;
 				color: lighten(#383d95, 10%);
+
+				@media screen and (max-width: $bp5) {
+					color: darken($mint, 10%);
+				}
 			}
 		}
 	}
