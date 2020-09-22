@@ -10,9 +10,16 @@
 					<li>
 						<a
 							:href="repo.html_url"
+							class="technologies-list__repo-link"
 							target="_blank"
 							:title="`View ${repo.name} repository on Github`"
-						>View Repo</a>
+						>
+							View Repo
+							<svg viewBox="0 0 19 16" class="sc" role="img" labelledby="palmTitle">
+								<title id="palmTitle">Palm tree to resemble South Carolina</title>
+								<use xlink:href="../assets/svgs/external-link.svg#external-link" />
+							</svg>
+						</a>
 					</li>
 				</ul>
 			</div>
@@ -21,7 +28,6 @@
 </template>
 
 <script>
-
 const getGitRepos = () => {
 	const api = 'https://api.github.com/users/cweave/repos';
 	return fetch(api).then(response => {
@@ -48,6 +54,7 @@ export default {
 
 			result
 				.filter(event => event.updated_at.slice(0, 10) >= maxDateTime && event.updated_at.slice(0, 10) <= currentDate)
+				.sort((a, b) => b.updated_at.localeCompare(a.updated_at))
 				.map(i => {
 					const { name, html_url, description, language, updated_at } = i;
 
@@ -113,6 +120,16 @@ $maxWidth: 1fr;
 			bottom: 0;
 			padding-bottom: 1em;
 			margin-top: 0.5em;
+
+			&__repo-link {
+				display: inline-flex;
+				align-items: center;
+
+				svg {
+					width: 12px;
+					margin-left: 0.25em;
+				}
+			}
 		}
 	}
 }

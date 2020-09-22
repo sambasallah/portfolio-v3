@@ -52,7 +52,8 @@ export default {
 			Vue.nextTick(() => {
 				if (this.contactHeight === 0) {
 					this.contactHeight = document.getElementById('contact-section').offsetHeight;
-				} else {
+				}
+				else {
 					this.contactHeight = 0;
 				}
 			});

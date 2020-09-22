@@ -122,12 +122,13 @@
 					Thanks for getting in touch with me! I'll be in contact with you shortly :)
 				</p>
 			</section>
+
+			<p class="small">
+				handcrafted with
+				<span role="img" aria-label="love">&#x2764;</span>
+				{{ new Date().getFullYear() }}
+			</p>
 		</div>
-		<p class="small">
-			handcrafted with
-			<span role="img" aria-label="love">&#x2764;</span>
-			{{ new Date().getFullYear() }}
-		</p>
 	</section>
 </template>
 
@@ -218,7 +219,7 @@ export default {
 		font-size: 0.85em;
 		padding: 0;
 		position: absolute;
-		bottom: 0;
+		bottom: -50px;
 		width: 100%;
 
 		span {
@@ -230,6 +231,7 @@ export default {
 	$maxWidth: 1fr;
 
 	.grid-container {
+		position: relative;
 		grid-template-columns: repeat(auto-fit, minmax($minWidth, $maxWidth));
 
 		@media screen and (max-width: 320px) {
@@ -293,6 +295,7 @@ export default {
 				display: flex;
 				flex-wrap: wrap;
 				margin: 0 1em;
+				height: 100%;
 
 				input,
 				textarea {
