@@ -9,42 +9,45 @@
 					idea.
 				</p>
 				<p>Interested in seeing more examples of my work?</p>
-				<h3>Connect with me!</h3>
 
-				<ul class="contact-social-links">
-					<li>
-						<a
-							href="https://github.com/cweave"
-							target="_blank"
-							title="Check out Christa's Github repositories"
-						>
-							<svg viewBox="0 0 16 15" role="img" labelledby="githubTitle">
-								<title id="githubTitle">Github logo</title>
-								<use xlink:href="../assets/svgs/github.svg#github" />
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a href="https://codepen.io/cweave" target="_blank" title="Follow Christa on CodePen">
-							<svg viewBox="0 0 16 15" role="img" labelledby="codepenTitle">
-								<title id="codepenTitle">Codepen logo</title>
-								<use xlink:href="../assets/svgs/codepen.svg#codepen" />
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://www.linkedin.com/in/weaverchrista/"
-							target="_blank"
-							title="Connect with Christa on LinkedIn"
-						>
-							<svg viewBox="0 0 16 15" role="img" labelledby="linkedInTitle">
-								<title id="linkedInTitle">LinkedIn logo</title>
-								<use xlink:href="../assets/svgs/linkedin.svg#linkedin" />
-							</svg>
-						</a>
-					</li>
-				</ul>
+				<div class="contact-section__connect">
+					<h3>Connect with me!</h3>
+
+					<ul class="contact-section__connect-social-links">
+						<li>
+							<a
+								href="https://github.com/cweave"
+								target="_blank"
+								title="Check out Christa's Github repositories"
+							>
+								<svg viewBox="0 0 16 15" role="img" labelledby="githubTitle">
+									<title id="githubTitle">Github logo</title>
+									<use xlink:href="../assets/svgs/github.svg#github" />
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="https://codepen.io/cweave" target="_blank" title="Follow Christa on CodePen">
+								<svg viewBox="0 0 16 15" role="img" labelledby="codepenTitle">
+									<title id="codepenTitle">Codepen logo</title>
+									<use xlink:href="../assets/svgs/codepen.svg#codepen" />
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a
+								href="https://www.linkedin.com/in/weaverchrista/"
+								target="_blank"
+								title="Connect with Christa on LinkedIn"
+							>
+								<svg viewBox="0 0 16 15" role="img" labelledby="linkedInTitle">
+									<title id="linkedInTitle">LinkedIn logo</title>
+									<use xlink:href="../assets/svgs/linkedin.svg#linkedin" />
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</section>
 
 			<section class="form">
@@ -154,9 +157,9 @@ export default {
 	},
 	methods: {
 		formatPhone(e) {
-			console.log('format', e.target.value);
 			const digit = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
 			e.target.value = !digit[2] ? digit[1] : `(${digit[1]}) ${digit[2]}${digit[3] ? `-${digit[3]}` : ''}`;
+			this.phone = e.target.value;
 		},
 		handleKeyUp(e) {
 			const label = e.target.nextSibling;
@@ -164,7 +167,7 @@ export default {
 		},
 		handleBlur(e) {
 			const label = e.target.nextSibling;
-			if (e.target.value === '') label.classList.remove('filled');
+			e.target.value === '' ? label.classList.remove('filled') : label.classList.add('filled');
 		},
 		processForm(e) {
 			// change the button to a spinner on submit and disable button
@@ -200,6 +203,10 @@ export default {
 	transform: all ease 0.5s;
 	padding: 0.5em 1em;
 
+	p {
+		padding: 0 2em;
+	}
+
 	@media screen and (max-width: $bp5) {
 		overflow-y: scroll;
 		top: 50px;
@@ -209,10 +216,44 @@ export default {
 		min-height: 50vh;
 	}
 
-	h3 {
-		font-family: $sans-serif;
-		font-weight: 600;
-		font-style: italic;
+	&__connect {
+		margin-top: 2em;
+
+		h3 {
+			font-family: $sans-serif;
+			font-weight: 600;
+			font-style: italic;
+			text-align: center;
+		}
+		&-social-links {
+			display: inline-flex;
+			justify-content: center;
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+
+			li {
+				a {
+					background-image: none;
+					transition: color 0.2s ease-in;
+
+					&:hover,
+					&:focus,
+					&:active {
+						color: $mint;
+					}
+				}
+
+				&:not(:last-of-type) {
+					margin-right: 10px;
+				}
+			}
+
+			svg {
+				width: 30px;
+			}
+		}
 	}
 
 	.small {
@@ -249,34 +290,6 @@ export default {
 	&__grid-container {
 		& > section:nth-child(1) {
 			grid-area: contact;
-
-			.contact-social-links {
-				display: inline-flex;
-				list-style-type: none;
-				padding: 0;
-				margin: 0;
-
-				li {
-					a {
-						background-image: none;
-						transition: color 0.2s ease-in;
-
-						&:hover,
-						&:focus,
-						&:active {
-							color: $mint;
-						}
-					}
-
-					&:not(:last-of-type) {
-						margin-right: 10px;
-					}
-				}
-
-				svg {
-					width: 30px;
-				}
-			}
 		}
 
 		& > section:nth-child(2) {
@@ -410,7 +423,8 @@ export default {
 							z-index: 2;
 							width: 100%;
 							font-weight: 300;
-							opacity: 0.5;
+							color: $body-text;
+							opacity: 0.8;
 							cursor: text;
 							transition: 0.2s ease all;
 							margin: 0;

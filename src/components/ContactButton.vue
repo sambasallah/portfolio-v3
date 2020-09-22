@@ -110,11 +110,7 @@ export default {
 			&:active,
 			&.active {
 				cursor: pointer;
-				color: lighten(#383d95, 10%);
-
-				@media screen and (max-width: $bp5) {
-					color: darken($mint, 10%);
-				}
+				color: darken($mint, 10%);
 			}
 		}
 	}

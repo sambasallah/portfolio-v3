@@ -40,7 +40,7 @@ const routes = [
 		path: '/resume',
 		name: 'resume',
 		component: Resume,
-		displayInNav: false,
+		displayInNav: true,
 		meta: {
 			title: 'Resume | Christa Weaver - Frontend Engineer'
 		}
