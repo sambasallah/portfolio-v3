@@ -15,8 +15,8 @@
 							:title="`View ${repo.name} repository on Github`"
 						>
 							View Repo
-							<svg viewBox="0 0 19 16" class="sc" role="img" labelledby="palmTitle">
-								<title id="palmTitle">Palm tree to resemble South Carolina</title>
+							<svg viewBox="0 0 19 16" class="sc" role="img" labelledby="external">
+								<title id="external">External website icon - box with arrow coming out of it</title>
 								<use xlink:href="../assets/svgs/external-link.svg#external-link" />
 							</svg>
 						</a>
@@ -82,6 +82,8 @@ $maxWidth: 1fr;
 
 .git-projects {
 	margin-bottom: 4em;
+	height: auto;
+	transition: height 0.66s ease-out;
 
 	.grid-container {
 		grid-template-columns: repeat(auto-fit, minmax($minWidth, $maxWidth));

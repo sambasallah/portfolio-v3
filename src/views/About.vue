@@ -5,40 +5,47 @@
 			<h2 class>Priestess of software, Goddess of code.</h2>
 		</header>
 
-		<p>
-			My passion for web development started around the age of 11 with Invisionfree forums and learning what CSS was and how to create different
-			skins. Then the discovery of MySpace happened, and it was all downhill from there (well, maybe not downhill, since my obsession eventually landed
-			me into a career). I eventually went to college where I got my Associate's of Applied Sciences in Website Programming.
-		</p>
-		<p>
-			I am a frontend engineer located in the Columbia, South Carolina metro area
-			<svg
-				viewBox="0 0 19 16"
-				class="sc"
-				role="img"
-				labelledby="palmTitle"
-			>
-				<title id="palmTitle">Palm tree to resemble South Carolina</title>
-				<use xlink:href="../assets/images/south-carolina.svg#south-carolina" />
-			</svg> (but my roots are from Michigan
-			<svg
-				viewBox="0 0 16 15"
-				class="mi"
-				role="img"
-				labelledby="mittenTitle"
-			>
-				<title id="mittenTitle">Winter mitten depicting the shape of Michigan</title>
-				<use xlink:href="../assets/images/michigan.svg#michigan" />
-			</svg> ). I have extensive experience with sematic HTML, SCSS, and vanilla JavaScript (ES6+). My current pathway is aligned with JavaScript development, with a focus in VueJs, but anything on the frontend spectrum is fair game.
-		</p>
-		<p>
-			By daylight, I click away at my rainbow backlight mechanical keyboard. In my spare time, I am a reader of sci-fi and mystery books, an enjoyer of
-			psychological thrillers, and have a newfound enjoyment with playing Dungeons &amp; Dragons.
-		</p>
-		<span>¯\(ツ)/¯ and (╯°□°）╯︵ ┻━┻ are my two natural states.</span>
+		<div class="grid-container">
+			<div class="about-content__bio">
+				<p>
+					My passion for web development started around the age of 11 with Invisionfree forums and learning what CSS was and how to create different
+					skins. Then the discovery of MySpace happened, and it was all downhill from there (well, maybe not downhill, since my obsession eventually landed
+					me into a career). I eventually went to college where I got my Associate's of Applied Sciences in Website Programming.
+				</p>
+				<p>
+					I am a frontend engineer located in the Columbia, South Carolina metro area
+					<svg
+						viewBox="0 0 19 16"
+						class="sc"
+						role="img"
+						labelledby="palmTitle"
+					>
+						<title id="palmTitle">Palm tree to resemble South Carolina</title>
+						<use xlink:href="../assets/images/south-carolina.svg#south-carolina" />
+					</svg> (but my roots are from Michigan
+					<svg
+						viewBox="0 0 16 15"
+						class="mi"
+						role="img"
+						labelledby="mittenTitle"
+					>
+						<title id="mittenTitle">Winter mitten depicting the shape of Michigan</title>
+						<use xlink:href="../assets/images/michigan.svg#michigan" />
+					</svg> ). I have extensive experience with sematic HTML, SCSS, and vanilla JavaScript (ES6+). My current pathway is aligned with JavaScript development, with a focus in VueJs, but anything on the frontend spectrum is fair game.
+				</p>
+				<p>
+					By daylight, I click away at my rainbow backlight mechanical keyboard. In my spare time, I am a reader of sci-fi and mystery books, an enjoyer of
+					psychological thrillers, and have a newfound enjoyment with playing Dungeons &amp; Dragons.
+				</p>
+				<span>¯\(ツ)/¯ and (╯°□°）╯︵ ┻━┻ are my two natural states.</span>
 
-		<div class="button-group">
-			<router-link to="resume" class="btn btn--primary">View Web Resume</router-link>
+				<div class="button-group">
+					<router-link to="resume" class="btn btn--primary">View Web Resume</router-link>
+				</div>
+			</div>
+			<div class="about-content__image">
+				<img src="../assets/images/christa.jpg" alt="The one and only Christa" width="400" height="300" />
+			</div>
 		</div>
 	</div>
 </template>
@@ -89,6 +96,27 @@ export default {
 
 	.button-group {
 		margin-top: 2em;
+	}
+
+	$minWidth: 275px;
+	$maxWidth: 1fr;
+
+	.grid-container {
+		grid-template-columns: 1fr 300px;
+
+		@media screen and (max-width: 400px) {
+			grid-template-columns: repeat(auto-fill, minmax(100%, $maxWidth));
+		}
+	}
+
+	&__image {
+		img {
+			width: 100%;
+			max-width: 300px;
+			border-radius: 1em;
+			border: 1px solid $slate;
+			box-shadow: 0 0 10px 2px rgba($slate, 0.5);
+		}
 	}
 }
 </style>

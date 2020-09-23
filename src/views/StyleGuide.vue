@@ -89,6 +89,11 @@ export default {
 <style lang="scss" scoped>
 .style-guide {
 	&__grid-container {
+		> * {
+			background-color: $white;
+			box-shadow: 0 5px 20px rgba($white, 0.12);
+		}
+
 		color: $black;
 
 		& > div:nth-child(1) {
