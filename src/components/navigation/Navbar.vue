@@ -2,7 +2,7 @@
 	<nav :class="isMenuOpen ? 'navbar active' : 'navbar'">
 		<div class="navbar_items">
 			<hamburger />
-			<span class="brand" title="Christa Weaver">cw</span>
+			<router-link to="/" class="navbar_items-brand"><span title="Christa Weaver">cw</span></router-link>
 
 			<transition name="fade" mode="out-in">
 				<nav-menu v-if="isMenuOpen">
@@ -55,6 +55,32 @@ export default {
 			position: absolute;
 			height: 100%;
 		}
+
+		&-brand {
+			color: $skyblue;
+			font-size: 2em;
+			font-weight: 300;
+			letter-spacing: 0.1px;
+			font-family: 'FF Meta VF';
+			height: 40px;
+			margin-bottom: 0.25em;
+			background-image: none;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: $mint;
+			}
+
+			strong {
+				font-family: 'FF Meta VF';
+				font-weight: 600;
+			}
+
+			@media screen and (min-width: $bp5) {
+				margin-left: 0.5em;
+			}
+		}
 	}
 
 	@media screen and (min-width: $bp5) {
@@ -79,25 +105,6 @@ export default {
 	&.active {
 		transition: all 0.3s ease;
 		background-color: rgba($slate, 0.9);
-	}
-
-	.brand {
-		color: $skyblue;
-		font-size: 2em;
-		font-weight: 300;
-		letter-spacing: 0.1px;
-		font-family: 'FF Meta VF';
-		height: 40px;
-		margin-bottom: 0.25em;
-
-		strong {
-			font-family: 'FF Meta VF';
-			font-weight: 600;
-		}
-
-		@media screen and (min-width: $bp5) {
-			margin-left: 0.5em;
-		}
 	}
 }
 </style>
