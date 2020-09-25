@@ -27,7 +27,7 @@ export default {
 			{ property: 'og:site_name', content: 'Christa Weaver | Frontend Engineer' },
 			{ property: 'og:type', content: 'website' },
 			{ property: 'og:url', content: 'https://www.christaweaver.com' },
-			{ property: 'og:image', content: 'https://christaweaver.com/assets/images/christa-weaver.jpg' },
+			{ property: 'og:image', content: '../assets/images/christa-weaver.jpg' },
 			{
 				property: 'og:description',
 				content: 'Front end web developer specializing in performant user interfaces and responsive web design.'
