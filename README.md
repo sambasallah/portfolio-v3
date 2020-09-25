@@ -1,4 +1,5 @@
 # portfolio-v3
+[![Netlify Status](https://api.netlify.com/api/v1/badges/40c63c80-029b-491d-9399-85b5ba944792/deploy-status)](https://app.netlify.com/sites/cweave-v3/deploys)
 
 Updating personal portfolio round 3. Tackling it with Vue.
 
