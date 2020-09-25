@@ -1,4 +1,5 @@
 const path = require('path');
+const PrerenderSpaPlugin = require('prerender-spa-plugin');
 
 function resolveRealPath(dir) {
 	return path.join(__dirname, dir);
@@ -29,7 +30,16 @@ module.exports = {
 				src: path.resolve(__dirname, 'src')
 			},
 			extensions: ['.vue', '.js', '.scss']
-		}
+		},
+
+		plugins: [
+			new PrerenderSpaPlugin(
+				// Absolute path to compiled SPA
+				path.resolve(__dirname, 'dist'),
+				// List of routes to prerender
+				['/', '/about', '/projects', '/resume']
+			)
+		]
 	},
 	chainWebpack: config => {
 		config.module

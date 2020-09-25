@@ -20,6 +20,34 @@ export default {
 		Contact,
 		Navbar
 	},
+	metaInfo: {
+		link: [{ rel: 'canonical', href: 'https://www.christaweaver.com' }],
+		meta: [
+			{ property: 'og:title', content: 'Christa Weaver | Frontend Engineer - South Carolina' },
+			{ property: 'og:site_name', content: 'Christa Weaver | Frontend Engineer' },
+			// The list of types is available here: http://ogp.me/#types
+			{ property: 'og:type', content: 'website' },
+			// Should the the same as your canonical link, see below.
+			{ property: 'og:url', content: 'https://www.christaweaver.com' },
+			{ property: 'og:image', content: 'https://christaweaver.com/img/portfolio-v3.06ce45dd.jpg' },
+			// Often the same as your meta description, but not always.
+			{
+				property: 'og:description',
+				content: 'Front end web developer specializing in performant user interfaces and responsive web design.'
+			},
+			// Twitter card
+			{ name: 'twitter:card', content: 'summary' },
+			{ name: 'twitter:site', content: 'https://www.christaweaver.com' },
+			{ name: 'twitter:title', content: 'Christa Weaver | Frontend Engineer - South Carolina' },
+			{
+				name: 'twitter:description',
+				content: 'Front end web developer specializing in performant user interfaces and responsive web design.'
+			},
+			// Your twitter handle, if you have one.
+			{ name: 'twitter:creator', content: '@cweave_' },
+			{ name: 'twitter:image:src', content: 'https://christaweaver.com/img/portfolio-v3.06ce45dd.jpg' }
+		]
+	},
 	computed: {
 		routeIsHome() {
 			return this.$route.name === 'home';

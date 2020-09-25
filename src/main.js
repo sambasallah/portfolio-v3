@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueAnalytics from 'vue-analytics';
+import Meta from 'vue-meta';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -7,7 +8,7 @@ import './styles/styles.scss';
 
 Vue.config.productionTip = false;
 
-Vue.use(VueAnalytics, {
+Vue.use(Meta, VueAnalytics, {
 	id: 'UA-61317148-4',
 	router,
 	debug: {

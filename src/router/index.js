@@ -15,7 +15,8 @@ const routes = [
 		component: Home,
 		displayInNav: true,
 		meta: {
-			title: 'Frontend Engineer | Christa Weaver - South Carolina'
+			title: 'Christa Weaver | Frontend Engineer - South Carolina',
+			description: 'Front end web developer specializing in performant user interfaces and responsive web design.'
 		}
 	},
 	{
