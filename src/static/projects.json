@@ -27,7 +27,7 @@
 		},
 		{
 			"name": "Portfolio v2",
-			"url": "https://portfoliov2.christaweaver.com/",
+			"url": "https://portfoliov2.christaweaver.dev/",
 			"imagePreview": "portfolio.jpg",
 			"description": "Removed CSS framework and refactored styles to SCSS. Removed jQuery functionality and converted all functionality to utilize Vanilla JavaScript. Improved Accessibility by 18%, Best Practices by 20%, SEO by 11%, and Performance from 13% to 33% on Desktop and Mobile Experiences based on Lighthouse Audits.",
 			"technology": [
@@ -39,14 +39,14 @@
 		},
 		{
 			"name": "UVMSI",
-			"url": "http://uvmsi.christaweaver.com/",
+			"url": "http://uvmsi.christaweaver.dev/",
 			"imagePreview": "united-vending.jpg",
 			"description": "Local vending and market services company. Launched in November of 2017, UVMSI was the \"first\" website created on my own outside of the work environment.",
 			"technology": ["W3.CSS", "HTML", "CSS", "jQuery"]
 		},
 		{
 			"name": "Chinquiry",
-			"url": "http://chinquiry.christaweaver.com/",
+			"url": "http://chinquiry.christaweaver.dev/",
 			"imagePreview": "chinquiry.jpg",
 			"description": "Circa early 2015. This was my first live website created in a course at Macomb Community College. Handcrafted with straight HTML and CSS. A modern, responsive Chinquiry is in the works.",
 			"technology": [
