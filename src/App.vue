@@ -14,18 +14,13 @@ import ContactButton from '@/components/ContactButton.vue';
 import Contact from '@/views/Contact.vue';
 import Navbar from '@/components/navigation/Navbar.vue';
 
-const ROOT_PATH = 'https://christaweaver.com/';
+const ROOT_PATH = 'https://christaweaver.com';
 
 export default {
 	components: {
 		ContactButton,
 		Contact,
 		Navbar
-	},
-	data() {
-		return {
-			logo: ROOT_PATH + require('./assets/images/christa-weaver.jpg')
-		};
 	},
 	metaInfo: {
 		link: [{ rel: 'canonical', href: 'https://www.christaweaver.com' }],
@@ -34,7 +29,7 @@ export default {
 			{ property: 'og:site_name', content: 'Christa Weaver | Frontend Engineer' },
 			{ property: 'og:type', content: 'website' },
 			{ property: 'og:url', content: 'https://www.christaweaver.com' },
-			{ property: 'og:image', content: this.logo },
+			{ property: 'og:image', content: `${ROOT_PATH}${require('./assets/images/christa-weaver.jpg')}` },
 			{
 				property: 'og:description',
 				content: 'Front end web developer specializing in performant user interfaces and responsive web design.'
@@ -44,7 +39,7 @@ export default {
 			{ name: 'twitter:site', content: 'https://www.christaweaver.com' },
 			{ name: 'twitter:title', content: 'Christa Weaver | Frontend Engineer - South Carolina' },
 			{ name: 'twitter:creator', content: '@cweave_' },
-			{ name: 'twitter:image', content: this.logo }
+			{ name: 'twitter:image', content: `${ROOT_PATH}${require('./assets/images/christa-weaver.jpg')}` }
 		]
 	},
 	computed: {
