@@ -39,7 +39,8 @@ export default {
 			{ name: 'twitter:site', content: 'https://www.christaweaver.com' },
 			{ name: 'twitter:title', content: 'Christa Weaver | Frontend Engineer - South Carolina' },
 			{ name: 'twitter:creator', content: '@cweave_' },
-			{ name: 'twitter:image', content: `${ROOT_PATH}${require('./assets/images/christa-weaver.jpg')}` }
+			{ name: 'twitter:image', content: `${ROOT_PATH}${require('./assets/images/christa-weaver.jpg')}` },
+                        { name: 'google-site-verification', content: 'AEcz1H4IGhlTAKotqLPHA6w-yypQYmyzbhtQEktkUVc' }
 		]
 	},
 	computed: {
